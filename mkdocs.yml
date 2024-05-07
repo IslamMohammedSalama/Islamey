@@ -4,8 +4,8 @@ site_description: About Islamey Application .
 copyright: Copyright &copy; 2024 Islam Mohamed
 theme:
   name: material
-  favicon: /assets/icon.png
   logo: /assets/icon.png
+  favicon: /assets/icon.png
   features:
     - content.code.copy
     - content.code.highlight
