@@ -1,0 +1,22 @@
+site_name: Islamey
+site_author: Islam Mohamed
+site_description: About Islamey Application .
+copyright: Copyright &copy; 2024 Islam Mohamed
+theme:
+  name: material
+  favicon: /assets/icon.png
+  logo: /assets/icon.png
+  features:
+    - content.code.copy
+    - content.code.highlight
+    - content.code.select
+    - content.code.annotate
+    - search.suggest
+    - search.highlight
+    - search.share
+    - header.autohide
+    - announce.dismiss
+    - navigation.footer
+plugins:
+  - search
+  - tags
