@@ -1,12 +1,12 @@
 site_name: Islamey
-site_author: Islam Mohamed
-site_description: About Islamey Application .
+site_author: Islam Mohammed Salama
+site_description: About Islamey App .
 copyright: Copyright &copy; 2024 Islam Mohamed
 repo_url: https://github.com/IslamMohammedSalama/Islamey.git
 theme:
-  name: material
   logo: /assets/icon.png
   favicon: /assets/icon.png
+  name: material
   features:
     - content.code.copy
     - content.code.highlight
@@ -18,6 +18,24 @@ theme:
     - header.autohide
     - announce.dismiss
     - navigation.footer
+  theme:
+  palette:
+
+    # Light mode
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+
+    # Dark mode
+    - scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
 plugins:
   - search
   - tags
