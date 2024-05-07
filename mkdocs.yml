@@ -2,6 +2,7 @@ site_name: Islamey
 site_author: Islam Mohamed
 site_description: About Islamey Application .
 copyright: Copyright &copy; 2024 Islam Mohamed
+repo_url: https://github.com/IslamMohammedSalama/Islamey.git
 theme:
   name: material
   logo: /assets/icon.png
