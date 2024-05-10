@@ -10,7 +10,6 @@ import 'package:Islamey/view/azkar_page.dart';
 import 'package:Islamey/core/azkar_list.dart';
 import 'package:Islamey/view/azhan.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 import 'package:Islamey/view/settings_page.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -63,8 +62,6 @@ class _HomepageState extends State<Homepage> {
           onTap: (index_of_change) {
             setState(() {
               selected_index = index_of_change;
-
-
             });
             pageController.jumpToPage(selected_index);
             pageController.animateToPage(selected_index,
@@ -133,44 +130,50 @@ class _HomepageState extends State<Homepage> {
         body: PageView(
           controller: pageController,
           children: [
-            ListView(
+            GridView(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                mainAxisSpacing: 2.5,
+                crossAxisSpacing: 2.5,
+                childAspectRatio: 1,
+                mainAxisExtent: 150,
+                
+              ),
               children: [
-                Wrap(
-                  alignment: WrapAlignment.center,
-                  children: [
-                    ...List.generate(azkars.keys.toList().length, (index) {
-                      return InkWell(
-                        onTap: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => Builder(
-                                builder: (context) => AzkarPage(
-                                    title: azkars.keys.toList()[index]),
-                              ),
-                            ),
-                          );
-                        },
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(10)),
-                        child: Card(
-                          color: Colors.blue,
-                          child: SizedBox(
-                            height: 100,
-                            child: Center(
-                              child: Text(
-                                azkars.keys.toList()[index],
-                                style: const TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w900,
-                                    fontFamily: "IBMPlexSansArabic-Thin"),
-                              ),
-                            ),
+                ...List.generate(azkars.keys.toList().length, (index) {
+                  return InkWell(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => Builder(
+                            builder: (context) =>
+                                AzkarPage(title: azkars.keys.toList()[index]),
                           ),
                         ),
                       );
-                    })
-                  ],
-                ),
+                    },
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
+                    child: Card(
+                      color: Colors.blue,
+                      child: SizedBox(
+                        height: 100,
+                        child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              azkars.keys.toList()[index],
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w900,
+                                  fontFamily: "IBMPlexSansArabic-Thin"),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                }),
               ],
             ),
             const IndexPage(),
@@ -182,9 +185,7 @@ class _HomepageState extends State<Homepage> {
           onPageChanged: (index_of_change) {
             setState(() {
               selected_index = index_of_change;
-
             });
-            
           },
         ));
   }
