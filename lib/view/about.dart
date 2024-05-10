@@ -30,7 +30,7 @@ class _AboutPageState extends State<AboutPage> {
                 ),
                 onTap: () {
                   Share.share(
-                      '''اسلامي \n اسلامي هو تطبيق تم تطويره من قبل اسلام محمد سلامة \n https://github.com/Islam394/Islamey''');
+                      '''اسلامي \n اسلامي هو تطبيق تم تطويره من قبل اسلام محمد سلامة \n https://github.com/IslamMohammedSalama''');
                   Navigator.pop(context);
                 },
               ),
@@ -45,9 +45,9 @@ class _AboutPageState extends State<AboutPage> {
                 ),
                 onTap: () async {
                   if (!await launchUrl(
-                      Uri.parse('https://github.com/Islam394/Islamey'),
+                      Uri.parse('https://github.com/IslamMohammedSalama'),
                       mode: LaunchMode.externalApplication)) {
-                    throw 'Could not launch https://github.com/Islam394/Islamey';
+                    throw 'Could not launch https://github.com/IslamMohammedSalama';
                   }
                 },
               ),
@@ -59,9 +59,9 @@ class _AboutPageState extends State<AboutPage> {
               TextButton(
                   onPressed: () async {
                     if (!await launchUrl(
-                        Uri.parse('https://github.com/Islam394/Islamey'),
+                        Uri.parse('https://github.com/IslamMohammedSalama'),
                         mode: LaunchMode.externalApplication)) {
-                      throw 'Could not launch https://github.com/Islam394/Islamey';
+                      throw 'Could not launch https://github.com/IslamMohammedSalama';
                     }
                   },
                   child: const Text(
@@ -73,18 +73,18 @@ class _AboutPageState extends State<AboutPage> {
                       onPressed: () async {
                         if (!await launchUrl(
                             Uri.parse(
-                                'https://www.facebook.com/profile.php?id=61555736083117'),
+                                'https://www.facebook.com/profile.php?id=61559104063980'),
                             mode: LaunchMode.externalApplication)) {
-                          throw 'Could not launch https://www.facebook.com/profile.php?id=61555736083117';
+                          throw 'Could not launch https://www.facebook.com/profile.php?id=61559104063980';
                         }
                       },
                       icon: const Icon(Icons.facebook)),
                   IconButton(
                       onPressed: () async {
                         if (!await launchUrl(
-                            Uri.parse('https://github.com/Islam394'),
+                            Uri.parse('https://github.com/IslamMohammedSalama'),
                             mode: LaunchMode.externalApplication)) {
-                          throw 'Could not launch https://github.com/Islam394';
+                          throw 'Could not launch https://github.com/IslamMohammedSalama';
                         }
                       },
                       icon: const ImageIcon(

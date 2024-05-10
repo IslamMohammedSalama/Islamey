@@ -6,7 +6,9 @@ import 'package:Islamey/view/homepage.dart';
 import 'package:Islamey/view/azkar_page.dart';
 
 void main() {
+  
   runApp(const MyApp());
+  
 }
 
 class MyApp extends StatefulWidget {
