@@ -70,70 +70,231 @@ class _azkarState extends State<azkar> {
   @override
   Widget build(BuildContext context) {
     if (azkars[widget.title]![widget.index] != "أذكار الاستيقاظ من النوم") {
-      return Container(
-        margin: const EdgeInsets.all(5),
-        child: InkWell(
-          onTap: () {
-            if (widget.counter == azkars[widget.title]![widget.index][1]) {
-              return;
-            } else {
-              setState(() {
-                widget.counter++;
-              });
-            }
-          },
-          child: Container(
-            color: const Color.fromARGB(115, 85, 85, 85),
-            child: Center(
-              child: Column(
-                children: [
-                  const Spacer(),
-                  Container(
-                    alignment: Alignment.center,
-                    margin: const EdgeInsets.only(top: 10),
-                    color: const Color.fromARGB(255, 75, 75, 75),
-                    height: 250,
-                    width: double.infinity,
-                    child: SingleChildScrollView(
-                      child: Text(" ${azkars[widget.title]![widget.index][0]}",
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                              color: Color.fromARGB(255, 255, 255, 255),
-                              fontFamily: "IBMPlexSansArabic-Thin",
-                              fontSize: 20,
-                              fontWeight: FontWeight.w900)),
-                    ),
-                  ),
-                  const Spacer(),
-                  Container(
-                    decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 0, 195, 5),
-                    ),
-                    margin: const EdgeInsets.only(top: 10),
-                    child: Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Column(
-                        children: [
-                          Center(
-                            child: Text(
-                                "${azkars[widget.title]!.length}/${azkars[widget.title]!.indexOf(azkars[widget.title]![widget.index]) + 1} ${azkars[widget.title]![widget.index][1]}/${widget.counter}  تقال ${azkars[widget.title]![widget.index][1]} مرة ",
+      if (widget.title != "تسابيح") {
+        return Container(
+            margin: const EdgeInsets.all(5),
+            child: InkWell(
+                onTap: () {
+                  if (widget.title != "تسابيح") {
+                    if (widget.counter ==
+                        azkars[widget.title]![widget.index][1]) {
+                      return;
+                    } else {
+                      setState(() {
+                        widget.counter++;
+                      });
+                    }
+                  } else {
+                    setState(() {
+                      widget.counter++;
+                    });
+                  }
+                },
+                child: Container(
+                    color: const Color.fromARGB(115, 85, 85, 85),
+                    child: Center(
+                        child: Column(children: [
+                      const Spacer(),
+                      Container(
+                        alignment: Alignment.center,
+                        margin: const EdgeInsets.only(top: 10),
+                        color: const Color.fromARGB(255, 75, 75, 75),
+                        height: 250,
+                        width: double.infinity,
+                        child: ListView(
+                          padding: const EdgeInsets.all(8.0),
+                          shrinkWrap: true,
+                          children: [
+                            Text(" ${azkars[widget.title]![widget.index][0]}",
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
                                     color: Color.fromARGB(255, 255, 255, 255),
-                                    fontFamily: "digital-mono",
-                                    fontSize: 25,
+                                    fontFamily: "IBMPlexSansArabic-Thin",
+                                    fontSize: 20,
                                     fontWeight: FontWeight.w900)),
+                                    const Divider(thickness: 1,color: Color.fromARGB(255, 35, 35, 35),),
+                            Text(" ${azkars[widget.title]![widget.index][2]}",
+                                textDirection: TextDirection.rtl,
+                                style: const TextStyle(
+                                    color: Color.fromARGB(255, 200, 200, 200),
+                                    fontFamily: "IBMPlexSansArabic-Thin",
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w900))
+                          ],
+                        ),
+                      ),
+                      const Spacer(),
+                      Container(
+                        decoration: const BoxDecoration(
+                          color: Color.fromARGB(255, 0, 195, 5),
+                        ),
+                        margin: const EdgeInsets.only(top: 10),
+                        child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                          "${azkars[widget.title]!.length}/${azkars[widget.title]!.indexOf(azkars[widget.title]![widget.index]) + 1}",
+                                          style: const TextStyle(
+                                              color: Color.fromARGB(
+                                                  255, 255, 255, 255),
+                                              fontFamily: "digital-mono",
+                                              fontSize: 25,
+                                              fontWeight: FontWeight.w100)),
+                                      Text(
+                                        "  تقال ${azkars[widget.title]![widget.index][1]} من المرات",
+                                        style: const TextStyle(
+                                          color: Color.fromARGB(
+                                              255, 255, 255, 255),
+                                          fontFamily: "IBMPlexSansArabic-Thin",
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w900,
+                                        ),
+                                      ),
+                                    ]),
+                                RichText(
+                                  text: TextSpan(children: <TextSpan>[
+                                    const TextSpan(
+                                        text: "عدد المرات الفعلية :"),
+                                    TextSpan(
+                                        text: " ${widget.counter}",
+                                        style: const TextStyle(
+                                            color: Color.fromARGB(
+                                                255, 255, 255, 255),
+                                            fontFamily: "digital-Mono",
+                                            fontSize: 25,
+                                            fontWeight: FontWeight.w100))
+                                  ]),
+                                )
+                              ],
+                            ),
                           ),
+                        ),
+                      ),
+                    ])))));
+      } else {
+        return Container(
+          margin: const EdgeInsets.all(5),
+          child: InkWell(
+            onTap: () {
+              if (widget.title != "تسابيح") {
+                if (widget.counter == azkars[widget.title]![widget.index][1]) {
+                  return;
+                } else {
+                  setState(() {
+                    widget.counter++;
+                  });
+                }
+              } else {
+                setState(() {
+                  widget.counter++;
+                });
+              }
+            },
+            child: Container(
+              color: const Color.fromARGB(115, 85, 85, 85),
+              child: Center(
+                child: Column(
+                  children: [
+                    const Spacer(),
+                    Container(
+                      alignment: Alignment.center,
+                      margin: const EdgeInsets.only(top: 10),
+                      color: const Color.fromARGB(255, 75, 75, 75),
+                      height: 250,
+                      width: double.infinity,
+                      child: ListView(
+                        shrinkWrap: true,
+                        padding: const EdgeInsets.all(10),
+                        children: [
+                          Text(" ${azkars[widget.title]![widget.index][0]}",
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                  color: Color.fromARGB(255, 255, 255, 255),
+                                  fontFamily: "IBMPlexSansArabic-Thin",
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w900)),
+                          const Divider(
+                            color: Color.fromARGB(255, 0, 0, 0),
+                            thickness: 1,
+                          ),
+                          Text("${azkars[widget.title]![widget.index][2]}",
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                  color: Color.fromARGB(255, 255, 255, 255),
+                                  fontFamily: "IBMPlexSansArabic-Thin",
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w900)),
                         ],
                       ),
                     ),
-                  ),
-                ],
+                    const Spacer(),
+                    Container(
+                      decoration: const BoxDecoration(
+                        color: Color.fromARGB(255, 0, 195, 5),
+                      ),
+                      margin: const EdgeInsets.only(top: 10),
+                      child: Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                        "${azkars[widget.title]!.length}/${azkars[widget.title]!.indexOf(azkars[widget.title]![widget.index]) + 1}",
+                                        style: const TextStyle(
+                                            color: Color.fromARGB(
+                                                255, 255, 255, 255),
+                                            fontFamily: "digital-mono",
+                                            fontSize: 25,
+                                            fontWeight: FontWeight.w100)),
+                                    const Text(
+                                      "  تقال عدد لا نهائي من المرات",
+                                      style: TextStyle(
+                                        color:
+                                            Color.fromARGB(255, 255, 255, 255),
+                                        fontFamily: "IBMPlexSansArabic-Thin",
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w900,
+                                      ),
+                                    ),
+                                  ]),
+                              RichText(
+                                text: TextSpan(children: <TextSpan>[
+                                  const TextSpan(text: "عدد المرات الفعلية :"),
+                                  TextSpan(
+                                      text: " ${widget.counter}",
+                                      style: const TextStyle(
+                                          color: Color.fromARGB(
+                                              255, 255, 255, 255),
+                                          fontFamily: "digital-Mono",
+                                          fontSize: 25,
+                                          fontWeight: FontWeight.w100))
+                                ]),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
-        ),
-      );
+        );
+      }
     } else if (azkars[widget.title]![widget.index] ==
         """أذكار الاستيقاظ من النوم""") {
       return Card(

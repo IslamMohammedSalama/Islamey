@@ -51,6 +51,7 @@ class _SettingPageState extends State<SettingPage> {
                         color: text_color)),
               ),
               SettingsTile.switchTile(
+                activeSwitchColor: Colors.blue,
                 onToggle: (value) {
                   setState(() {
                     state = value;

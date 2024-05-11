@@ -41,59 +41,59 @@ class _azanState extends State<azan> {
             "Isha": "العشاء",
           };
           return ListView.builder(
+
             itemCount: times.length,
             itemBuilder: (context, index) {
               if (frod.keys.toList().contains(times.keys.toList()[index])) {
-                return Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5.0),
-                  ),
-                  color: Colors.red,
+                return Container(
+                  margin:const EdgeInsets.only(top: 1),
+                  color: const Color.fromARGB(255, 243, 33, 33),
                   child: ListTile(
-                    onTap: () => showDialog(
-                      builder: (context) => AlertDialog(
-                        backgroundColor: backgraundcolor,
-                        title: Directionality(
+                    
+                      onTap: () => showDialog(
+                        builder: (context) => AlertDialog(
+                          backgroundColor: backgraundcolor,
+                          title: Directionality(
+                              textDirection: TextDirection.rtl,
+                              child: Text(
+                                "مواقيت صلاة ${frod[times.keys.toList()[index]]}",
+                                style: TextStyle(color: text_color),
+                              )),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.pop(context),
+                              child: Text("حسنا",
+                                  style: TextStyle(color: text_color)),
+                            )
+                          ],
+                          content: Directionality(
                             textDirection: TextDirection.rtl,
                             child: Text(
-                              "مواقيت صلاة ${frod[times.keys.toList()[index]]}",
+                              "سيؤذن صلاة  ${frod[times.keys.toList()[index]]} في تمام الساعة : ${times[times.keys.toList()[index]]}",
                               style: TextStyle(color: text_color),
-                            )),
-                        actions: [
-                          TextButton(
-                            onPressed: () => Navigator.pop(context),
-                            child: Text("حسنا",
-                                style: TextStyle(color: text_color)),
-                          )
-                        ],
-                        content: Directionality(
-                          textDirection: TextDirection.rtl,
-                          child: Text(
-                            "سيؤذن صلاة  ${frod[times.keys.toList()[index]]} في تمام الساعة : ${times[times.keys.toList()[index]]}",
-                            style: TextStyle(color: text_color),
+                            ),
                           ),
                         ),
+                        context: context,
                       ),
-                      context: context,
-                    ),
-                    title: Directionality(
-                      textDirection: TextDirection.rtl,
-                      child: Text(
-                        "${frod[times.keys.toList()[index]]}",
-                        style: Theme.of(context).textTheme.bodySmall,
+                      title: Directionality(
+                        textDirection: TextDirection.rtl,
+                        child: Text(
+                          "${frod[times.keys.toList()[index]]}",
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ),
                       ),
-                    ),
-                    subtitle: Directionality(
-                      textDirection: TextDirection.rtl,
-                      child: Text(
-                        " يؤذن في تمام الساعة : ${times[times.keys.toList()[index]]}",
-                        style: const TextStyle(
-                            fontFamily: "IBMPlexSansArabic-Thin",
-                            fontSize: 20,
-                            color: Color.fromARGB(255, 90, 90, 90),
-                            fontWeight: FontWeight.w900),
+                      subtitle: Directionality(
+                        textDirection: TextDirection.rtl,
+                        child: Text(
+                          " يؤذن في تمام الساعة : ${times[times.keys.toList()[index]]}",
+                          style: const TextStyle(
+                              fontFamily: "IBMPlexSansArabic-Thin",
+                              fontSize: 20,
+                              color: Color.fromARGB(255, 90, 90, 90),
+                              fontWeight: FontWeight.w900),
+                        ),
                       ),
-                    ),
                   ),
                 );
               }

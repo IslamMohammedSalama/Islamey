@@ -59,13 +59,13 @@ class _AboutPageState extends State<AboutPage> {
               TextButton(
                   onPressed: () async {
                     if (!await launchUrl(
-                        Uri.parse('https://github.com/IslamMohammedSalama'),
+                        Uri.parse('https://github.com/IslamMohammedSalama/Islamey'),
                         mode: LaunchMode.externalApplication)) {
-                      throw 'Could not launch https://github.com/IslamMohammedSalama';
+                      throw 'Could not launch https://github.com/IslamMohammedSalama/Islamey';
                     }
                   },
                   child: const Text(
-                      'رابط المشروع :  https://github.com/Islam394/Islamey',textDirection: TextDirection.rtl,),),
+                      'رابط المشروع :  https://github.com/IslamMohammedSalama/Islamey',textDirection: TextDirection.rtl,),),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
