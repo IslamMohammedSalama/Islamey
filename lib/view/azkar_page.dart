@@ -1,7 +1,8 @@
 // ignore_for_file: camel_case_types, must_be_immutable, non_constant_identifier_names
+import 'package:islamey/core/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:Islamey/core/azkar_list.dart';
-import 'package:Islamey/view/homepage.dart';
+import 'package:islamey/core/azkar_list.dart';
+import 'package:islamey/view/homepage.dart';
 
 class AzkarPage extends StatefulWidget {
   String title;
@@ -37,6 +38,7 @@ class _AzkarPageState extends State<AzkarPage> {
     return Scaffold(
       backgroundColor: backgraundcolor,
       appBar: AppBar(
+        backgroundColor: appcolor,
         title: Text(
           widget.title,
           style: const TextStyle(
@@ -98,7 +100,7 @@ class _azkarState extends State<azkar> {
                       Container(
                         alignment: Alignment.center,
                         margin: const EdgeInsets.only(top: 10),
-                        color: const Color.fromARGB(255, 75, 75, 75),
+                        color: appcolor,
                         height: 250,
                         width: double.infinity,
                         child: ListView(
@@ -112,7 +114,10 @@ class _azkarState extends State<azkar> {
                                     fontFamily: "IBMPlexSansArabic-Thin",
                                     fontSize: 20,
                                     fontWeight: FontWeight.w900)),
-                                    const Divider(thickness: 1,color: Color.fromARGB(255, 35, 35, 35),),
+                            const Divider(
+                              thickness: 1,
+                              color: Color.fromARGB(255, 35, 35, 35),
+                            ),
                             Text(" ${azkars[widget.title]![widget.index][2]}",
                                 textDirection: TextDirection.rtl,
                                 style: const TextStyle(
@@ -125,8 +130,8 @@ class _azkarState extends State<azkar> {
                       ),
                       const Spacer(),
                       Container(
-                        decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 0, 195, 5),
+                        decoration: BoxDecoration(
+                          color: appcolor,
                         ),
                         margin: const EdgeInsets.only(top: 10),
                         child: Align(

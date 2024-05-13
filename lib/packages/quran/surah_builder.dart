@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
-import 'package:Islamey/view/homepage.dart';
+import 'package:islamey/core/constants.dart';
+import 'package:islamey/view/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'constant.dart';
@@ -79,7 +80,7 @@ class _SurahBuilderState extends State<SurahBuilder> {
     if (!view)
       // ignore: curly_braces_in_flow_control_structures
       for (int i = 0; i < LenghtOfSura; i++) {
-        fullSura += (widget.arabic[i + previousVerses]['aya_text']);
+        fullSura += " ${(widget.arabic[i + previousVerses]['aya_text'])}";
       }
 
     return SafeArea(
@@ -96,6 +97,7 @@ class _SurahBuilderState extends State<SurahBuilder> {
                       Container(
                         color: backgraundcolor,
                         child: PopupMenuButton(
+                            color: backgraundcolor,
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: verseBuilder(index, previousVerses),
@@ -115,7 +117,12 @@ class _SurahBuilderState extends State<SurahBuilder> {
                                         SizedBox(
                                           width: 10,
                                         ),
-                                        Text('اضافة الي المرجعيات'),
+                                        Text(
+                                          'اضافة الي المرجعيات',
+                                          style: TextStyle(
+                                              color: Color.fromARGB(
+                                                  255, 56, 115, 59)),
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -132,7 +139,12 @@ class _SurahBuilderState extends State<SurahBuilder> {
                                         SizedBox(
                                           width: 10,
                                         ),
-                                        Text('مشاركة'),
+                                        Text(
+                                          'مشاركة',
+                                          style: TextStyle(
+                                              color: Color.fromARGB(
+                                                  255, 56, 115, 59)),
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -188,13 +200,14 @@ class _SurahBuilderState extends State<SurahBuilder> {
     return Scaffold(
       backgroundColor: backgraundcolor,
       appBar: AppBar(
+        backgroundColor: appcolor,
         actions: [
           Tooltip(
             message: 'وضعية المصحف',
             child: TextButton(
               child: const Icon(
                 Icons.chrome_reader_mode,
-                color: Colors.white,
+                color: Colors.black,
               ),
               onPressed: () {
                 setState(() {
@@ -222,7 +235,6 @@ class _SurahBuilderState extends State<SurahBuilder> {
                 ),
               ]),
         ),
-        backgroundColor: const Color.fromARGB(255, 56, 115, 59),
       ),
       body: SingleSuraBuilder(LengthOfSura),
     );
@@ -234,8 +246,9 @@ class RetunBasmala extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
-      Center(
+    return Container(
+      margin: const EdgeInsets.only(bottom: 10),
+      child: Center(
         child: Text(
           'بسم الله الرحمن الرحيم',
           style: TextStyle(
@@ -243,6 +256,6 @@ class RetunBasmala extends StatelessWidget {
           textDirection: TextDirection.rtl,
         ),
       ),
-    ]);
+    );
   }
 }

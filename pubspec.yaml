@@ -1,4 +1,4 @@
-name: Islamey
+name: islamey
 description: "مشروع اسلامي جديد !"
 publish_to: 'none'
 version: 1.0.0+1
@@ -6,8 +6,10 @@ environment:
   sdk: '>=3.3.0 <4.0.0'
 
 dependencies:
+
   flutter:
     sdk: flutter
+    
   cupertino_icons: ^1.0.6
   shared_preferences: ^2.2.2
   syncfusion_flutter_pdfviewer: ^25.1.35
@@ -46,7 +48,6 @@ flutter_native_splash:
   color: "#000000"
   image: assets/images/splash.jpeg
   android_gravity: fill
-
 flutter:
   uses-material-design: true
   assets:
@@ -57,31 +58,26 @@ flutter:
     - assets/icons/
     - assets/pdf/
     - assets/json/
+
   fonts:
     - family: IBMPlexSansArabic-Thin
       fonts:
         - asset: assets/fonts/IBMPlexSansArabic-Thin.ttf
-
     - family: aBMPlexSansArabic-Bold
       fonts:
         - asset: assets/fonts/IBMPlexSansArabic-Bold.ttf
-
     - family:  digital-mono
       fonts:
         - asset: assets/fonts/digital-mono.ttf
-
     - family:  digital-italic-bold
       fonts:
         - asset: assets/fonts/digital-italic-bold.ttf
-
     - family:  digital-italic
       fonts:
         - asset: assets/fonts/digital-italic.ttf
-        
     - family:  digital-normel
       fonts:
         - asset: assets/fonts/digital-normel.ttf
-
     - family: quran
       fonts:
         - asset: assets/fonts/HafsSmart_08.ttf

@@ -2,15 +2,16 @@
 
 import 'dart:io';
 
-import 'package:Islamey/packages/quran/index.dart';
-import 'package:Islamey/view/about.dart';
-import 'package:Islamey/view/spha.dart';
+import 'package:islamey/core/constants.dart';
+import 'package:islamey/packages/quran/index.dart';
+import 'package:islamey/view/about.dart';
+import 'package:islamey/view/spha.dart';
 import 'package:flutter/material.dart';
-import 'package:Islamey/view/azkar_page.dart';
-import 'package:Islamey/core/azkar_list.dart';
-import 'package:Islamey/view/azhan.dart';
+import 'package:islamey/view/azkar_page.dart';
+import 'package:islamey/core/azkar_list.dart';
+import 'package:islamey/view/azhan.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:Islamey/view/settings_page.dart';
+import 'package:islamey/view/settings_page.dart';
 import 'package:path_provider/path_provider.dart';
 
 var brightness =
@@ -53,9 +54,10 @@ class _HomepageState extends State<Homepage> {
         backgroundColor: backgraundcolor,
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          selectedItemColor: Colors.red,
-          backgroundColor: const Color.fromARGB(255, 0, 102, 255),
-          unselectedItemColor: Colors.blue,
+          selectedItemColor: const Color.fromARGB(255, 255, 17, 0),
+          backgroundColor: appcolor,
+          // selectedLabelStyle: TextStyle(),
+          unselectedItemColor: Colors.blue[225],
           showUnselectedLabels: true,
           showSelectedLabels: true,
           currentIndex: selected_index,
@@ -125,7 +127,7 @@ class _HomepageState extends State<Homepage> {
             style: Theme.of(context).textTheme.bodySmall,
           ),
           centerTitle: true,
-          backgroundColor: Colors.blue[800],
+          backgroundColor: appcolor,
         ),
         body: PageView(
           controller: pageController,
@@ -133,11 +135,10 @@ class _HomepageState extends State<Homepage> {
             GridView(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
-                mainAxisSpacing: 2.5,
-                crossAxisSpacing: 2.5,
+                mainAxisSpacing: 0,
+                crossAxisSpacing: 0,
                 childAspectRatio: 1,
                 mainAxisExtent: 150,
-                
               ),
               children: [
                 ...List.generate(azkars.keys.toList().length, (index) {
@@ -154,7 +155,11 @@ class _HomepageState extends State<Homepage> {
                     },
                     borderRadius: const BorderRadius.all(Radius.circular(10)),
                     child: Card(
-                      color: Colors.blue,
+                      margin: const EdgeInsets.all(1.5),
+                      color: appcolor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(2.5),
+                      ),
                       child: SizedBox(
                         height: 100,
                         child: Center(

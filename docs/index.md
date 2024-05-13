@@ -1,4 +1,4 @@
-# Islamey
+# islamey
 A New Islamic Program! 
 ## Getting Started
 
@@ -20,19 +20,19 @@ To Install The Code Run This Comments In The Command Line :
 
 1. Clone The Repo : 
 ```sh
-git clone https://github.com/Islam394/Islamey.git
+git clone https://github.com/Islam394/islamey.git
 ```
 
 2. Run Flutter Code : 
 
 ```sh
-cd Islamey
+cd islamey
 flutter run
 ```
 
 # Features : 
 
-### 1. Open Source And Secure: So you can Look at the Code On GitHub  [Tap To Get The Link ](https://github.com/Islam394/Islamey.git).
+### 1. Open Source And Secure: So you can Look at the Code On GitHub  [Tap To Get The Link ](https://github.com/Islam394/islamey.git).
 
 ### 2. Don't Have An Ads: So The Program Is Not Have A Code to Use An Ads.
 ### 3. Has A Mus'haf: So You Can Read A Quran In The Program
@@ -62,19 +62,19 @@ flutter run
 
 1. استنساخ المستودع :
 ```sh
-git clone  https://github.com/Islam394/Islamey.git
+git clone  https://github.com/Islam394/islamey.git
 ```
 
 2. تشغيل كود Flutter :
 
 ```sh
-cd Islamey 
+cd islamey 
 flutter run
 ```
 
 # سمات :
 
-### 1. مفتوح المصدر وآمن: حيث يمكنك من إلقاء نظرة على الكود الموجود على GitHub [انقر للحصول على الرابط](https://github.com/Islam394/Islamey.git).
+### 1. مفتوح المصدر وآمن: حيث يمكنك من إلقاء نظرة على الكود الموجود على GitHub [انقر للحصول على الرابط](https://github.com/Islam394/islamey.git).
 
 ### 2. لا يوجد به  اي اعلان  : حيث لا يحتوي البرنامج على كود لاستخدام الإعلانات.
 ### 3. به مصحف: حيث يمكنك من قراءة القرآن الكريم في البرنامج

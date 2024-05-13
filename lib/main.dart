@@ -1,14 +1,13 @@
 // ignore_for_file: unused_import
 
-import 'package:Islamey/packages/quran/constant.dart';
+import 'package:islamey/core/constants.dart';
+import 'package:islamey/packages/quran/constant.dart';
 import 'package:flutter/material.dart';
-import 'package:Islamey/view/homepage.dart';
-import 'package:Islamey/view/azkar_page.dart';
+import 'package:islamey/view/homepage.dart';
+import 'package:islamey/view/azkar_page.dart';
 
 void main() {
-  
   runApp(const MyApp());
-  
 }
 
 class MyApp extends StatefulWidget {
@@ -37,7 +36,6 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
           appBarTheme: const AppBarTheme(
             centerTitle: true,
-            color: Colors.red,
           ),
           textTheme: const TextTheme(
             bodySmall: TextStyle(

@@ -1,4 +1,4 @@
-# Islamey
+# Islamey App
 A New Islamic Program! 
 ## Getting Started
 

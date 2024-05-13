@@ -1,4 +1,5 @@
-import 'package:Islamey/view/homepage.dart';
+import 'package:islamey/core/constants.dart';
+import 'package:islamey/view/homepage.dart';
 import 'package:flutter/material.dart';
 import 'mydrawer.dart';
 import 'surah_builder.dart';
@@ -20,7 +21,7 @@ class _IndexPageState extends State<IndexPage> {
       drawer: const MyDrawer(),
       floatingActionButton: FloatingActionButton(
         tooltip: 'الذهاب الي المرجع',
-        backgroundColor: Colors.green,
+        backgroundColor: appcolor,
         onPressed: () async {
           fabIsClicked = true;
           if (await readBookmark() == true) {
@@ -55,7 +56,7 @@ class _IndexPageState extends State<IndexPage> {
                 ),
               ]),
         ),
-        backgroundColor: const Color.fromARGB(255, 56, 115, 59),
+        backgroundColor: appcolor,
       ),
       body: FutureBuilder(
         future: readJson(),

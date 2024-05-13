@@ -1,4 +1,5 @@
-import 'package:Islamey/view/homepage.dart';
+import 'package:islamey/core/constants.dart';
+import 'package:islamey/view/homepage.dart';
 import 'package:flutter/material.dart';
 import 'constant.dart';
 
@@ -19,7 +20,7 @@ class _SettingsState extends State<Settings> {
           title: const Text(
             "الاعدادات",
           ),
-          backgroundColor: const Color.fromARGB(255, 56, 115, 59),
+          backgroundColor: appcolor,
         ),
         body: SafeArea(
           child: Padding(
@@ -36,6 +37,7 @@ class _SettingsState extends State<Settings> {
                     ),
                   ),
                   Slider(
+                    activeColor: appcolor,
                     value: arabicFontSize,
                     min: 20,
                     max: 40,
@@ -66,6 +68,7 @@ class _SettingsState extends State<Settings> {
                     ),
                   ),
                   Slider(
+                    activeColor: appcolor,
                     value: mushafFontSize,
                     min: 20,
                     max: 50,

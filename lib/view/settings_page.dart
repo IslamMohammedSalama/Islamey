@@ -1,9 +1,11 @@
 // ignore_for_file: unused_import
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
+import 'package:islamey/core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_settings_ui/flutter_settings_ui.dart';
-import 'package:Islamey/view/homepage.dart';
-import 'package:Islamey/view/spha.dart';
+import 'package:islamey/view/homepage.dart';
+import 'package:islamey/view/spha.dart';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({super.key});
@@ -51,7 +53,7 @@ class _SettingPageState extends State<SettingPage> {
                         color: text_color)),
               ),
               SettingsTile.switchTile(
-                activeSwitchColor: Colors.blue,
+                activeSwitchColor: appcolor,
                 onToggle: (value) {
                   setState(() {
                     state = value;
@@ -74,6 +76,95 @@ class _SettingPageState extends State<SettingPage> {
                         fontWeight: FontWeight.w900,
                         color: text_color)),
               ),
+              SettingsTile.navigation(
+                title: Row(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: appcolor,
+                      ),
+                      width: 40,
+                      height: 40,
+                    ),
+                    Container(
+                        margin: const EdgeInsets.only(left: 10),
+                        child: Text("اللون المفضل ",
+                            style: TextStyle(
+                                fontFamily: "IBMPlexSansArabic-Thin",
+                                fontSize: 15,
+                                fontWeight: FontWeight.w900,
+                                color: text_color))),
+                  ],
+                ),
+                trailing: MaterialButton(
+                  onPressed: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                            backgroundColor: backgraundcolor,
+                            title: Text(
+                              "تخيير اللون المفضل",
+                              style: TextStyle(color: text_color),
+                            ),
+                            content: SizedBox(
+                              height: 300,
+                              child: ListView(
+                                children: [
+                                  SizedBox(
+                                    height: 250,
+                                    child: BlockPicker(
+                                        availableColors: const [
+                                          Color.fromARGB(255, 21, 101, 192),
+                                          Color.fromARGB(255, 255, 0, 0),
+                                          Color.fromARGB(255, 0, 188, 212),
+                                          Color.fromARGB(255, 255, 152, 0),
+                                          Color.fromARGB(255, 156, 39, 176),
+                                          Color.fromARGB(255, 33, 150, 243),
+                                          Color.fromARGB(255, 103, 58, 183),
+                                          Color.fromARGB(255, 76, 175, 80),
+                                          Color.fromARGB(255, 255, 235, 59),
+                                          Color.fromARGB(255, 100, 60, 0),
+                                          Color.fromARGB(255, 90, 100, 25),
+                                          Color.fromARGB(255, 0, 150, 136),
+                                          Color.fromARGB(255, 121, 85, 72),
+                                          Color.fromARGB(255, 255, 160, 160),
+                                          Color.fromARGB(255, 255, 87, 34),
+                                          Color.fromARGB(255, 255, 152, 100),
+                                        ],
+                                        pickerColor: appcolor,
+                                        useInShowDialog: true,
+                                        onColorChanged:
+                                            (Color selectedcolorfromavcolor) =>
+                                                setState(() {
+                                                  appcolor =
+                                                      selectedcolorfromavcolor;
+                                                })),
+                                  ),
+                                  MaterialButton(
+                                    onPressed: () {
+                                      setState(() {});
+                                      Navigator.pop(context);
+                                    },
+                                    child: const Text(
+                                      "اختر اللون",
+                                      style: TextStyle(
+                                        color: Colors.green,
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            )));
+                  },
+                  child: Text("تغيير الللون المفضل ",
+                      style: TextStyle(
+                          fontFamily: "IBMPlexSansArabic-Thin",
+                          fontSize: 15,
+                          fontWeight: FontWeight.w900,
+                          color: text_color)),
+                ),
+              )
             ],
           ),
         ],

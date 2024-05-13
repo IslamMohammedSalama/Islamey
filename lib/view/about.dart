@@ -1,4 +1,4 @@
-import 'package:Islamey/view/homepage.dart';
+import 'package:islamey/view/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -57,15 +57,19 @@ class _AboutPageState extends State<AboutPage> {
                 textDirection: TextDirection.rtl,
               ),
               TextButton(
-                  onPressed: () async {
-                    if (!await launchUrl(
-                        Uri.parse('https://github.com/IslamMohammedSalama/Islamey'),
-                        mode: LaunchMode.externalApplication)) {
-                      throw 'Could not launch https://github.com/IslamMohammedSalama/Islamey';
-                    }
-                  },
-                  child: const Text(
-                      'رابط المشروع :  https://github.com/IslamMohammedSalama/Islamey',textDirection: TextDirection.rtl,),),
+                onPressed: () async {
+                  if (!await launchUrl(
+                      Uri.parse(
+                          'https://github.com/IslamMohammedSalama/islamey'),
+                      mode: LaunchMode.externalApplication)) {
+                    throw 'Could not launch https://github.com/IslamMohammedSalama/islamey';
+                  }
+                },
+                child: const Text(
+                  'رابط المشروع :  https://github.com/IslamMohammedSalama/islamey',
+                  textDirection: TextDirection.rtl,
+                ),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
