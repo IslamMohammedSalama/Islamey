@@ -52,11 +52,19 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: backgraundcolor,
+        
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           selectedItemColor: const Color.fromARGB(255, 255, 17, 0),
           backgroundColor: appcolor,
-          // selectedLabelStyle: TextStyle(),
+          unselectedLabelStyle: const TextStyle(
+              fontFamily: "IBMPlexSansArabic-Thin",
+              fontSize: 15,
+              fontWeight: FontWeight.w900),
+          selectedLabelStyle:const TextStyle(
+                fontFamily: "IBMPlexSansArabic-Thin",
+                fontSize: 15,
+                fontWeight: FontWeight.w900),
           unselectedItemColor: Colors.blue[225],
           showUnselectedLabels: true,
           showSelectedLabels: true,
