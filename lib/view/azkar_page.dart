@@ -2,7 +2,6 @@
 import 'package:islamey/core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:islamey/core/azkar_list.dart';
-import 'package:islamey/view/homepage.dart';
 
 class AzkarPage extends StatefulWidget {
   String title;
@@ -38,7 +37,7 @@ class _AzkarPageState extends State<AzkarPage> {
     return Scaffold(
       backgroundColor: backgraundcolor,
       appBar: AppBar(
-        backgroundColor: appcolor,
+        backgroundColor: theappcolor,
         title: Text(
           widget.title,
           style: const TextStyle(
@@ -100,7 +99,7 @@ class _azkarState extends State<azkar> {
                       Container(
                         alignment: Alignment.center,
                         margin: const EdgeInsets.only(top: 10),
-                        color: appcolor,
+                        color: theappcolor,
                         height: 250,
                         width: double.infinity,
                         child: ListView(
@@ -131,7 +130,7 @@ class _azkarState extends State<azkar> {
                       const Spacer(),
                       Container(
                         decoration: BoxDecoration(
-                          color: appcolor,
+                          color: theappcolor,
                         ),
                         margin: const EdgeInsets.only(top: 10),
                         child: Align(

@@ -27,146 +27,253 @@ class _SettingPageState extends State<SettingPage> {
       child: SettingsList(
         sections: [
           SettingsSection(
-            title: Center(
-                child: Text(
-              'الاعدادات',
-              style: TextStyle(
-                  fontFamily: "IBMPlexSansArabic-Thin",
-                  fontSize: 20,
-                  fontWeight: FontWeight.w900,
-                  color: text_color),
-            )),
-            tiles: <SettingsTile>[
-              SettingsTile.navigation(
-                leading: const Icon(Icons.language),
-                title: Text('اللغة',
-                    style: TextStyle(
-                        fontFamily: "IBMPlexSansArabic-Thin",
-                        fontSize: 20,
-                        fontWeight: FontWeight.w900,
-                        color: text_color)),
-                value: Text('العربية',
-                    style: TextStyle(
-                        fontFamily: "IBMPlexSansArabic-Thin",
-                        fontSize: 20,
-                        fontWeight: FontWeight.w900,
-                        color: text_color)),
-              ),
-              SettingsTile.switchTile(
-                activeSwitchColor: appcolor,
-                onToggle: (value) {
-                  setState(() {
-                    state = value;
-                    text_color =
-                        text_color == const Color.fromARGB(255, 255, 255, 255)
-                            ? const Color.fromARGB(255, 0, 0, 0)
-                            : const Color.fromARGB(255, 255, 255, 255);
-                    backgraundcolor =
-                        backgraundcolor == const Color.fromARGB(255, 0, 0, 0)
-                            ? const Color.fromARGB(255, 255, 255, 255)
-                            : const Color.fromARGB(255, 0, 0, 0);
-                  });
-                },
-                initialValue: state,
-                leading: const Icon(Icons.format_paint),
-                title: Text('المظهر الداكن',
-                    style: TextStyle(
-                        fontFamily: "IBMPlexSansArabic-Thin",
-                        fontSize: 20,
-                        fontWeight: FontWeight.w900,
-                        color: text_color)),
-              ),
-              SettingsTile.navigation(
-                title: Row(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: appcolor,
-                      ),
-                      width: 40,
-                      height: 40,
-                    ),
-                    Container(
-                        margin: const EdgeInsets.only(left: 10),
-                        child: Text("اللون المفضل ",
-                            style: TextStyle(
-                                fontFamily: "IBMPlexSansArabic-Thin",
-                                fontSize: 15,
-                                fontWeight: FontWeight.w900,
-                                color: text_color))),
-                  ],
-                ),
-                trailing: MaterialButton(
-                  onPressed: () {
-                    showDialog(
-                        context: context,
-                        builder: (context) => AlertDialog(
-                            backgroundColor: backgraundcolor,
-                            title: Text(
-                              "تخيير اللون المفضل",
-                              style: TextStyle(color: text_color),
-                            ),
-                            content: SizedBox(
-                              height: 300,
-                              child: ListView(
-                                children: [
-                                  SizedBox(
-                                    height: 250,
-                                    child: BlockPicker(
-                                        availableColors: const [
-                                          Color.fromARGB(255, 21, 101, 192),
-                                          Color.fromARGB(255, 255, 0, 0),
-                                          Color.fromARGB(255, 0, 188, 212),
-                                          Color.fromARGB(255, 255, 152, 0),
-                                          Color.fromARGB(255, 156, 39, 176),
-                                          Color.fromARGB(255, 33, 150, 243),
-                                          Color.fromARGB(255, 103, 58, 183),
-                                          Color.fromARGB(255, 76, 175, 80),
-                                          Color.fromARGB(255, 255, 235, 59),
-                                          Color.fromARGB(255, 100, 60, 0),
-                                          Color.fromARGB(255, 90, 100, 25),
-                                          Color.fromARGB(255, 0, 150, 136),
-                                          Color.fromARGB(255, 121, 85, 72),
-                                          Color.fromARGB(154, 122, 0, 0),
-                                          Color.fromARGB(255, 255, 87, 34),
-                                          Color.fromARGB(255, 182, 109, 73),
-                                        ],
-                                        pickerColor: appcolor,
-                                        useInShowDialog: true,
-                                        onColorChanged:
-                                            (Color selectedcolorfromavcolor) =>
-                                                setState(() {
-                                                  appcolor =
-                                                      selectedcolorfromavcolor;
-                                                })),
-                                  ),
-                                  MaterialButton(
-                                    onPressed: () {
-                                      setState(() {});
-                                      Navigator.pop(context);
-                                    },
-                                    child: const Text(
-                                      "اختر اللون",
-                                      style: TextStyle(
-                                        color: Colors.green,
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            )));
-                  },
-                  child: Text("تغيير الللون المفضل ",
+              title: Center(
+                  child: Text(
+                'الاعدادات',
+                style: TextStyle(
+                    fontFamily: "IBMPlexSansArabic-Thin",
+                    fontSize: 20,
+                    fontWeight: FontWeight.w900,
+                    color: text_color),
+              )),
+              tiles: <SettingsTile>[
+                SettingsTile.navigation(
+                  leading: const Icon(Icons.language),
+                  title: Text('اللغة',
                       style: TextStyle(
                           fontFamily: "IBMPlexSansArabic-Thin",
-                          fontSize: 15,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w900,
+                          color: text_color)),
+                  value: Text('العربية',
+                      style: TextStyle(
+                          fontFamily: "IBMPlexSansArabic-Thin",
+                          fontSize: 20,
                           fontWeight: FontWeight.w900,
                           color: text_color)),
                 ),
-              )
-            ],
-          ),
+                SettingsTile.switchTile(
+                  activeSwitchColor: theappcolor,
+                  onToggle: (value) {
+                    setState(() {
+                      state = value;
+                      text_color =
+                          text_color == const Color.fromARGB(255, 255, 255, 255)
+                              ? const Color.fromARGB(255, 0, 0, 0)
+                              : const Color.fromARGB(255, 255, 255, 255);
+                      backgraundcolor =
+                          backgraundcolor == const Color.fromARGB(255, 0, 0, 0)
+                              ? const Color.fromARGB(255, 255, 255, 255)
+                              : const Color.fromARGB(255, 0, 0, 0);
+                    });
+                  },
+                  initialValue: state,
+                  leading: const Icon(Icons.format_paint),
+                  title: Text('المظهر الداكن',
+                      style: TextStyle(
+                          fontFamily: "IBMPlexSansArabic-Thin",
+                          fontSize: 20,
+                          fontWeight: FontWeight.w900,
+                          color: text_color)),
+                ),
+                SettingsTile.switchTile(
+                  activeSwitchColor: theappcolor,
+                  onToggle: (value) {
+                    setState(() {
+                      is24HourFormat = value;
+                    });
+                  },
+                  initialValue: is24HourFormat,
+                  leading: const Icon(Icons.access_time_filled),
+                  title: Text("نظام الساعة 24",
+                      style: TextStyle(
+                          fontFamily: "IBMPlexSansArabic-Thin",
+                          fontSize: 20,
+                          fontWeight: FontWeight.w900,
+                          color: text_color)),
+                ),
+                SettingsTile.navigation(
+                  title: Row(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: theappcolor,
+                        ),
+                        width: 40,
+                        height: 40,
+                      ),
+                      Container(
+                          margin: const EdgeInsets.only(left: 10),
+                          child: Text("اللون المفضل ",
+                              style: TextStyle(
+                                  fontFamily: "IBMPlexSansArabic-Thin",
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w900,
+                                  color: text_color))),
+                    ],
+                  ),
+                  trailing: MaterialButton(
+                    onPressed: () {
+                      showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                              backgroundColor: backgraundcolor,
+                              title: Text(
+                                "تخيير اللون المفضل",
+                                style: TextStyle(color: text_color),
+                              ),
+                              content: SizedBox(
+                                height: 300,
+                                child: ListView(
+                                  children: [
+                                    SizedBox(
+                                      height: 250,
+                                      child: BlockPicker(
+                                          availableColors: const [
+                                            Color.fromARGB(255, 21, 101, 192),
+                                            Color.fromARGB(255, 255, 0, 0),
+                                            Color.fromARGB(255, 0, 188, 212),
+                                            Color.fromARGB(255, 255, 152, 0),
+                                            Color.fromARGB(255, 156, 39, 176),
+                                            Color.fromARGB(255, 33, 150, 243),
+                                            Color.fromARGB(255, 103, 58, 183),
+                                            Color.fromARGB(255, 76, 175, 80),
+                                            Color.fromARGB(255, 255, 235, 59),
+                                            Color.fromARGB(255, 100, 60, 0),
+                                            Color.fromARGB(255, 90, 100, 25),
+                                            Color.fromARGB(255, 0, 150, 136),
+                                            Color.fromARGB(255, 121, 85, 72),
+                                            Color.fromARGB(154, 122, 0, 0),
+                                            Color.fromARGB(255, 255, 87, 34),
+                                            Color.fromARGB(255, 182, 109, 73),
+                                          ],
+                                          pickerColor: theappcolor,
+                                          useInShowDialog: true,
+                                          onColorChanged:
+                                              (Color selectedcolorfromavcolor) {
+                                            setState(() {
+                                              theappcolor =
+                                                  selectedcolorfromavcolor;
+                                            });
+                                          }),
+                                    ),
+                                    MaterialButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      child: const Text(
+                                        "اختر اللون",
+                                        style: TextStyle(
+                                          color: Colors.green,
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              )));
+                    },
+                    child: Text("تغيير الللون المفضل ",
+                        style: TextStyle(
+                            fontFamily: "IBMPlexSansArabic-Thin",
+                            fontSize: 15,
+                            fontWeight: FontWeight.w900,
+                            color: text_color)),
+                  ),
+                ),
+                SettingsTile.navigation(
+                    title: SafeArea(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          Text(
+                            'حجم خط اللغة العربية:',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: text_color,
+                              fontSize: 15,
+                            ),
+                          ),
+                          Slider(
+                            activeColor: theappcolor,
+                            value: arabicFontSize,
+                            min: 20,
+                            max: 40,
+                            onChanged: (value) {
+                              setState(() {
+                                arabicFontSize = value;
+                              });
+                            },
+                          ),
+                          Text(
+                            "‏ ‏‏ ‏‏‏‏ ‏‏‏‏‏‏ ‏",
+                            style: TextStyle(
+                                color: text_color,
+                                fontFamily: 'quran',
+                                fontSize: arabicFontSize),
+                            textDirection: TextDirection.rtl,
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.only(top: 10, bottom: 10),
+                            child: Divider(),
+                          ),
+                          Text(
+                            'حجم خط المصحف في وضعية المصحف:',
+                            style: TextStyle(
+                              color: text_color,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
+                            ),
+                          ),
+                          Slider(
+                            activeColor: theappcolor,
+                            value: mushafFontSize,
+                            min: 20,
+                            max: 50,
+                            onChanged: (value) {
+                              setState(() {
+                                mushafFontSize = value;
+                              });
+                            },
+                          ),
+                          Text(
+                            "‏ ‏‏ ‏‏‏‏ ‏‏‏‏‏‏ ‏",
+                            style: TextStyle(
+                                color: text_color,
+                                fontFamily: 'quran',
+                                fontSize: mushafFontSize),
+                            textDirection: TextDirection.rtl,
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              ElevatedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      arabicFontSize = 28;
+                                      mushafFontSize = 40;
+                                    });
+                                    saveSettings();
+                                  },
+                                  child: const Text('اعادة تعيين الاعدادات')),
+                              ElevatedButton(
+                                  onPressed: () {
+                                    saveSettings();
+                                  },
+                                  child: const Text('حفظ')),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ))
+              ]),
         ],
         darkTheme: SettingsThemeData(
           settingsListBackground: backgraundcolor,

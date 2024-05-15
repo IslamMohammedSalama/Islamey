@@ -1,7 +1,6 @@
 // ignore_for_file: unused_import
 
 import 'package:islamey/core/constants.dart';
-import 'package:islamey/packages/quran/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:islamey/view/homepage.dart';
 import 'package:islamey/view/azkar_page.dart';
@@ -24,6 +23,7 @@ class _MyAppState extends State<MyApp> {
       await readJson();
       await getSettings();
     });
+
     super.initState();
   }
 

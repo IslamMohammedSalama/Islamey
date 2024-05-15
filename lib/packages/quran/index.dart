@@ -1,9 +1,6 @@
 import 'package:islamey/core/constants.dart';
-import 'package:islamey/view/homepage.dart';
 import 'package:flutter/material.dart';
-import 'mydrawer.dart';
 import 'surah_builder.dart';
-import 'constant.dart';
 import 'arabic_sura_number.dart';
 
 class IndexPage extends StatefulWidget {
@@ -18,10 +15,9 @@ class _IndexPageState extends State<IndexPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgraundcolor,
-      drawer: const MyDrawer(),
       floatingActionButton: FloatingActionButton(
         tooltip: 'الذهاب الي المرجع',
-        backgroundColor: appcolor,
+        backgroundColor: theappcolor,
         onPressed: () async {
           fabIsClicked = true;
           if (await readBookmark() == true) {
@@ -38,25 +34,6 @@ class _IndexPageState extends State<IndexPage> {
           }
         },
         child: const Icon(Icons.bookmark),
-      ),
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text(
-          //"القرآن",
-          "القرآن",
-          style: TextStyle(
-              //fontFamily: 'quran',
-              fontSize: 35,
-              fontWeight: FontWeight.bold,
-              shadows: [
-                Shadow(
-                  offset: Offset(1, 1),
-                  blurRadius: 2.0,
-                  color: Color.fromARGB(255, 0, 0, 0),
-                ),
-              ]),
-        ),
-        backgroundColor: appcolor,
       ),
       body: FutureBuilder(
         future: readJson(),

@@ -1,4 +1,4 @@
-import 'package:islamey/view/homepage.dart';
+import 'package:islamey/core/constants.dart';
 import 'package:flutter/material.dart';
 import 'to_arabic_no_converter.dart';
 

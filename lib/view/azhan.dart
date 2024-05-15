@@ -4,9 +4,7 @@ import 'dart:convert';
 import 'package:islamey/core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
-import 'package:islamey/view/homepage.dart';
 import 'package:intl/intl.dart' show DateFormat;
-
 
 class azan extends StatefulWidget {
   const azan({super.key});
@@ -22,6 +20,7 @@ class _azanState extends State<azan> {
         "http://api.aladhan.com/v1/timingsByCity?city=cairo&country=egypt&method=5"));
     return jsonDecode(respo.body);
   }
+
   String translateToArabic(String time) {
     if (time.endsWith("AM")) {
       return time.replaceAll("AM", "صباحًا");
@@ -39,9 +38,9 @@ class _azanState extends State<azan> {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(
             child: CircularProgressIndicator(
-              color: appcolor,
+              color: theappcolor,
             ),
-            // child:CupertinoActivityIndicator(color: appcolor,),
+            // child:CupertinoActivityIndicator(color: theappcolor,),
           );
         }
         if (snapshot.connectionState == ConnectionState.done) {
@@ -57,12 +56,10 @@ class _azanState extends State<azan> {
           return ListView.builder(
             itemCount: times.length,
             itemBuilder: (context, index) {
-              
               if (frod.keys.toList().contains(times.keys.toList()[index])) {
                 return Container(
                   margin: const EdgeInsets.only(top: 1),
-                  color: appcolor,
-
+                  color: theappcolor,
                   child: ListTile(
                     onTap: () => showDialog(
                       builder: (context) => AlertDialog(
@@ -83,7 +80,7 @@ class _azanState extends State<azan> {
                         content: Directionality(
                           textDirection: TextDirection.rtl,
                           child: Text(
-                            "سيؤذن صلاة  ${frod[times.keys.toList()[index]]} في تمام الساعة : ${translateToArabic(time_formater.format(DateFormat.Hm().parse(times[times.keys.toList()[index]])))}",
+                            "سيؤذن صلاة  ${frod[times.keys.toList()[index]]} في تمام الساعة : ${is24HourFormat ? times[times.keys.toList()[index]] : translateToArabic(time_formater.format(DateFormat.Hm().parse(times[times.keys.toList()[index]])))}",
                             style: TextStyle(color: text_color),
                           ),
                         ),
@@ -104,7 +101,7 @@ class _azanState extends State<azan> {
                     subtitle: Directionality(
                       textDirection: TextDirection.rtl,
                       child: Text(
-                        " يؤذن في تمام الساعة : ${translateToArabic(time_formater.format(DateFormat.Hm().parse(times[times.keys.toList()[index]])))}",
+                        " يؤذن في تمام الساعة : ${is24HourFormat ? times[times.keys.toList()[index]] : translateToArabic(time_formater.format(DateFormat.Hm().parse(times[times.keys.toList()[index]])))}",
                         style: const TextStyle(
                             fontFamily: "IBMPlexSansArabic-Thin",
                             fontSize: 20,

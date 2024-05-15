@@ -1,10 +1,8 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
 import 'package:islamey/core/constants.dart';
-import 'package:islamey/view/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-import 'constant.dart';
 
 // ignore: must_be_immutable
 class SurahBuilder extends StatefulWidget {
@@ -200,7 +198,7 @@ class _SurahBuilderState extends State<SurahBuilder> {
     return Scaffold(
       backgroundColor: backgraundcolor,
       appBar: AppBar(
-        backgroundColor: appcolor,
+        backgroundColor: theappcolor,
         actions: [
           Tooltip(
             message: 'وضعية المصحف',

@@ -5,22 +5,13 @@ import 'dart:io';
 import 'package:islamey/core/constants.dart';
 import 'package:islamey/packages/quran/index.dart';
 import 'package:islamey/view/about.dart';
+import 'package:islamey/view/customdrawer.dart';
 import 'package:islamey/view/spha.dart';
 import 'package:flutter/material.dart';
 import 'package:islamey/view/azkar_page.dart';
 import 'package:islamey/core/azkar_list.dart';
 import 'package:islamey/view/azhan.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:islamey/view/settings_page.dart';
-import 'package:path_provider/path_provider.dart';
-
-var brightness =
-    SchedulerBinding.instance.platformDispatcher.platformBrightness;
-bool isDarkMode = brightness == Brightness.dark;
-Color? backgraundcolor;
-Color text_color = const Color.fromARGB(255, 255, 255, 255);
-bool? state;
-Color? settings_text_color;
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -30,9 +21,7 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-  int selected_index = 0;
-  PageController pageController = PageController();
-  int counter = 0;
+
   @override
   void initState() {
     if (isDarkMode) {
@@ -51,20 +40,20 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      endDrawer: const CustomDrawer(),
         backgroundColor: backgraundcolor,
-        
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           selectedItemColor: const Color.fromARGB(255, 255, 17, 0),
-          backgroundColor: appcolor,
+          backgroundColor: theappcolor,
           unselectedLabelStyle: const TextStyle(
               fontFamily: "IBMPlexSansArabic-Thin",
               fontSize: 15,
               fontWeight: FontWeight.w900),
-          selectedLabelStyle:const TextStyle(
-                fontFamily: "IBMPlexSansArabic-Thin",
-                fontSize: 15,
-                fontWeight: FontWeight.w900),
+          selectedLabelStyle: const TextStyle(
+              fontFamily: "IBMPlexSansArabic-Thin",
+              fontSize: 15,
+              fontWeight: FontWeight.w900),
           unselectedItemColor: Colors.blue[225],
           showUnselectedLabels: true,
           showSelectedLabels: true,
@@ -135,7 +124,7 @@ class _HomepageState extends State<Homepage> {
             style: Theme.of(context).textTheme.bodySmall,
           ),
           centerTitle: true,
-          backgroundColor: appcolor,
+          backgroundColor: theappcolor,
         ),
         body: PageView(
           controller: pageController,
@@ -164,7 +153,7 @@ class _HomepageState extends State<Homepage> {
                     borderRadius: const BorderRadius.all(Radius.circular(10)),
                     child: Card(
                       margin: const EdgeInsets.all(1.5),
-                      color: appcolor,
+                      color: theappcolor,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(2.5),
                       ),
