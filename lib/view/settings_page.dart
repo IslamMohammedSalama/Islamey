@@ -188,6 +188,10 @@ class _SettingPageState extends State<SettingPage> {
                     child: SingleChildScrollView(
                       child: Column(
                         children: [
+                          const Divider(
+                            
+                            thickness:2,
+                          ),
                           Text(
                             'حجم خط اللغة العربية:',
                             style: TextStyle(
@@ -267,7 +271,7 @@ class _SettingPageState extends State<SettingPage> {
                                   },
                                   child: const Text('حفظ')),
                             ],
-                          ),
+                          ),const Divider(thickness:2,),
                         ],
                       ),
                     ),

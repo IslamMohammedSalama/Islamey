@@ -12,6 +12,14 @@ class _CustomDrawerState extends State<CustomDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      semanticLabel : "بسيلسيبل",
+      shape:const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(
+           Radius.circular(0),
+
+        )
+      ),
+      width: 250,
       backgroundColor: backgraundcolor,
       child: Directionality(
         textDirection: TextDirection.rtl,
@@ -20,6 +28,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             padding: EdgeInsets.zero,
             children: [
               ListTile(
+                
                 trailing: const ImageIcon(
                 AssetImage(
                   'assets/icons/zkr.png',

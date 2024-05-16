@@ -3,6 +3,8 @@ import 'package:islamey/core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:islamey/core/azkar_list.dart';
 
+PageController _pagecont = PageController();
+
 class AzkarPage extends StatefulWidget {
   String title;
 
@@ -16,19 +18,16 @@ class AzkarPage extends StatefulWidget {
 }
 
 Widget getthezekr(String title) {
-  if (azkars.containsKey(title)) {
-    return PageView(
-      reverse: true,
-      children: [
-        ...List.generate(azkars[title]!.length, (index) {
-          int counter = 0;
-          return azkar(counter: counter, title: title, index: index);
-        })
-      ],
-    );
-  }
-
-  return const Text("");
+  return PageView(
+    controller: _pagecont,
+    reverse: true,
+    children: [
+      ...List.generate(azkars[title]!.length, (index) {
+        int counter = 0;
+        return azkar(counter: counter, title: title, index: index);
+      })
+    ],
+  );
 }
 
 class _AzkarPageState extends State<AzkarPage> {

@@ -60,36 +60,34 @@ class _azanState extends State<azan> {
                 return Container(
                   margin: const EdgeInsets.only(top: 1),
                   color: theappcolor,
-                  child: ListTile(
-                    onTap: () => showDialog(
-                      builder: (context) => AlertDialog(
-                        backgroundColor: backgraundcolor,
-                        title: Directionality(
-                            textDirection: TextDirection.rtl,
-                            child: Text(
-                              "مواقيت صلاة ${frod[times.keys.toList()[index]]}",
-                              style: TextStyle(color: text_color),
-                            )),
-                        actions: [
-                          TextButton(
-                            onPressed: () => Navigator.pop(context),
-                            child: Text("حسنا",
-                                style: TextStyle(color: text_color)),
-                          )
-                        ],
-                        content: Directionality(
-                          textDirection: TextDirection.rtl,
-                          child: Text(
+                  child: Directionality(
+                    textDirection: TextDirection.rtl,
+                    child: ListTile(
+                      onTap: () => showDialog(
+                        builder: (context) => AlertDialog(
+                          backgroundColor: backgraundcolor,
+                          title: Directionality(
+                              textDirection: TextDirection.rtl,
+                              child: Text(
+                                "مواقيت صلاة ${frod[times.keys.toList()[index]]}",
+                                style: TextStyle(color: text_color),
+                              )),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.pop(context),
+                              child: Text("حسنا",
+                                  style: TextStyle(color: text_color)),
+                            )
+                          ],
+                          content: Text(
+                            
                             "سيؤذن صلاة  ${frod[times.keys.toList()[index]]} في تمام الساعة : ${is24HourFormat ? times[times.keys.toList()[index]] : translateToArabic(time_formater.format(DateFormat.Hm().parse(times[times.keys.toList()[index]])))}",
-                            style: TextStyle(color: text_color),
+                            style: TextStyle(color: text_color),textDirection: TextDirection.rtl,
                           ),
                         ),
+                        context: context,
                       ),
-                      context: context,
-                    ),
-                    title: Directionality(
-                      textDirection: TextDirection.rtl,
-                      child: Text(
+                      title: Text(
                         "${frod[times.keys.toList()[index]]}",
                         style: TextStyle(
                             color: text_color,
@@ -97,10 +95,7 @@ class _azanState extends State<azan> {
                             fontSize: 20,
                             fontWeight: FontWeight.w900),
                       ),
-                    ),
-                    subtitle: Directionality(
-                      textDirection: TextDirection.rtl,
-                      child: Text(
+                      subtitle: Text(
                         " يؤذن في تمام الساعة : ${is24HourFormat ? times[times.keys.toList()[index]] : translateToArabic(time_formater.format(DateFormat.Hm().parse(times[times.keys.toList()[index]])))}",
                         style: const TextStyle(
                             fontFamily: "IBMPlexSansArabic-Thin",

@@ -50,7 +50,7 @@ class _AboutPageState extends State<AboutPage> {
           },
         ),
         Text(
-          '''اسلامي \n اسلامي هو تطبيق تم تطويره من قبل اسلام محمد سلامة ''',
+          '''اسلامي \n اسلامي هو تطبيق تم تطويره من قبل اسلام محمد سلامة و باستخدام تقنية Flutter و بلغة Dart .''',
           style: TextStyle(
               color: text_color,
               fontFamily: "IBMPlexSansArabic-Thin",
@@ -117,7 +117,7 @@ class _AboutPageState extends State<AboutPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset("assets/icons/dart_icon.png",width: 30,height: 30),
-             Text("&",
+             Text(" & ",
               style :TextStyle(
                   fontFamily: "IBMPlexSansArabic-Thin",
                   fontSize: 20,

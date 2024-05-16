@@ -21,7 +21,6 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-
   @override
   void initState() {
     if (isDarkMode) {
@@ -40,7 +39,7 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      endDrawer: const CustomDrawer(),
+        endDrawer: const CustomDrawer(),
         backgroundColor: backgraundcolor,
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
@@ -60,12 +59,11 @@ class _HomepageState extends State<Homepage> {
           currentIndex: selected_index,
           onTap: (index_of_change) {
             setState(() {
-              selected_index = index_of_change;
+              selected_index = index_of_change;              pageController.animateToPage(selected_index,
+                  duration: const Duration(milliseconds: 1000),
+                  curve: Curves.ease);
             });
-            pageController.jumpToPage(selected_index);
-            pageController.animateToPage(selected_index,
-                duration: const Duration(milliseconds: 500),
-                curve: Curves.ease);
+
           },
           items: const [
             BottomNavigationBarItem(
