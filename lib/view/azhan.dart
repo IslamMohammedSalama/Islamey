@@ -5,6 +5,7 @@ import 'package:islamey/core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:intl/intl.dart' show DateFormat;
+import 'package:quickalert/quickalert.dart';
 
 class azan extends StatefulWidget {
   const azan({super.key});
@@ -63,30 +64,22 @@ class _azanState extends State<azan> {
                   child: Directionality(
                     textDirection: TextDirection.rtl,
                     child: ListTile(
-                      onTap: () => showDialog(
-                        builder: (context) => AlertDialog(
-                          backgroundColor: backgraundcolor,
-                          title: Directionality(
-                              textDirection: TextDirection.rtl,
-                              child: Text(
-                                "مواقيت صلاة ${frod[times.keys.toList()[index]]}",
-                                style: TextStyle(color: text_color),
-                              )),
-                          actions: [
-                            TextButton(
-                              onPressed: () => Navigator.pop(context),
-                              child: Text("حسنا",
-                                  style: TextStyle(color: text_color)),
-                            )
-                          ],
-                          content: Text(
-                            
-                            "سيؤذن صلاة  ${frod[times.keys.toList()[index]]} في تمام الساعة : ${is24HourFormat ? times[times.keys.toList()[index]] : translateToArabic(time_formater.format(DateFormat.Hm().parse(times[times.keys.toList()[index]])))}",
-                            style: TextStyle(color: text_color),textDirection: TextDirection.rtl,
-                          ),
-                        ),
-                        context: context,
-                      ),
+                      onTap: () {
+                        QuickAlert.show(
+                          
+                          context: context,
+                          type: QuickAlertType.info
+                          ,backgroundColor: backgraundcolor,
+                          animType: QuickAlertAnimType.slideInUp,
+                          title: "مواقيت صلاة ${frod[times.keys.toList()[index]]}",
+                        text:  "سيؤذن صلاة  ${frod[times.keys.toList()[index]]} في تمام الساعة : ${is24HourFormat ? times[times.keys.toList()[index]] : translateToArabic(time_formater.format(DateFormat.Hm().parse(times[times.keys.toList()[index]])))}",
+                        textColor: text_color,
+                          titleColor: text_color,
+                          confirmBtnColor: theappcolor,
+                          confirmBtnText: "حسنا"
+                        );
+
+                      },
                       title: Text(
                         "${frod[times.keys.toList()[index]]}",
                         style: TextStyle(

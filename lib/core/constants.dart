@@ -8,6 +8,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 import 'package:flutter/scheduler.dart';
+Color textColor = const Color.fromARGB(255, 255, 255, 255);
+Color backgraundcolor = const Color.fromARGB(255, 0, 0, 0);
+Color theAppColor = const Color.fromARGB(255, 21, 101, 192);
 
 Color theappcolor = const Color.fromARGB(255, 21, 101, 192);
 int selected_index = 0;
@@ -16,7 +19,6 @@ int counter = 0;
 var brightness =
     SchedulerBinding.instance.platformDispatcher.platformBrightness;
 bool isDarkMode = brightness == Brightness.dark;
-Color? backgraundcolor;
 Color text_color = const Color.fromARGB(255, 255, 255, 255);
 bool? state;
 Color? settings_text_color;

@@ -41,8 +41,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ),
                 onTap: () {
                   setState(() {
-                    selected_index = 0;
-                  });pageController.jumpToPage(selected_index);
+                    selected_index = 0;pageController.animateToPage(selected_index,duration:const Duration(milliseconds: 750,),curve: Curves.easeIn);
+                  });
                   Navigator.pop(context);
                 },
               ),
@@ -60,8 +60,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 onTap: () {
                   setState(() {
                     selected_index = 1;
+                    pageController.animateToPage(selected_index,
+                        duration: const Duration(
+                          milliseconds: 750,
+                        ),
+                        curve: Curves.easeIn);
                   });
-                  pageController.jumpToPage(selected_index);
+                  
                   Navigator.pop(context);
                 },
               ),
@@ -79,8 +84,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 onTap: () {
                   setState(() {
                     selected_index = 2;
+                    pageController.animateToPage(selected_index,
+                        duration: const Duration(
+                          milliseconds: 750,
+                        ),
+                        curve: Curves.easeIn);
                   });
-                  pageController.jumpToPage(selected_index);
+                  
                 
                   Navigator.pop(context);
 
@@ -100,8 +110,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 onTap: () {
                   setState(() {
                     selected_index = 3;
+                    pageController.animateToPage(selected_index,
+                        duration: const Duration(
+                          milliseconds: 750,
+                        ),
+                        curve: Curves.easeIn);
                   });
-                  pageController.jumpToPage(selected_index);
+                  
                   Navigator.pop(context);
                 },
               ),
@@ -114,8 +129,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 onTap: () {
                    setState(() {
                     selected_index = 4;
+                    pageController.animateToPage(selected_index,
+                        duration: const Duration(
+                          milliseconds: 750,
+                        ),
+                        curve: Curves.easeIn);
                   });
-                  pageController.jumpToPage(selected_index);
+                  
                   Navigator.pop(context);
                 },
               ),
@@ -128,8 +148,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 onTap: () {
                   setState(() {
                     selected_index = 5;
+                    pageController.animateToPage(selected_index,
+                        duration: const Duration(
+                          milliseconds: 750,
+                        ),
+                        curve: Curves.easeIn);
                   });
-                  pageController.jumpToPage(selected_index);
+                  
                   Navigator.pop(context);
                 },
               ),

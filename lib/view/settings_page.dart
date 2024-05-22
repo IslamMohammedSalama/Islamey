@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_settings_ui/flutter_settings_ui.dart';
 import 'package:islamey/view/homepage.dart';
 import 'package:islamey/view/spha.dart';
+import 'package:quickalert/quickalert.dart';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({super.key});
@@ -115,63 +116,62 @@ class _SettingPageState extends State<SettingPage> {
                   ),
                   trailing: MaterialButton(
                     onPressed: () {
-                      showDialog(
-                          context: context,
-                          builder: (context) => AlertDialog(
-                              backgroundColor: backgraundcolor,
-                              title: Text(
-                                "تخيير اللون المفضل",
-                                style: TextStyle(color: text_color),
-                              ),
-                              content: SizedBox(
-                                height: 300,
-                                child: ListView(
-                                  children: [
-                                    SizedBox(
-                                      height: 250,
-                                      child: BlockPicker(
-                                          availableColors: const [
-                                            Color.fromARGB(255, 21, 101, 192),
-                                            Color.fromARGB(255, 255, 0, 0),
-                                            Color.fromARGB(255, 0, 188, 212),
-                                            Color.fromARGB(255, 255, 152, 0),
-                                            Color.fromARGB(255, 156, 39, 176),
-                                            Color.fromARGB(255, 33, 150, 243),
-                                            Color.fromARGB(255, 103, 58, 183),
-                                            Color.fromARGB(255, 76, 175, 80),
-                                            Color.fromARGB(255, 255, 235, 59),
-                                            Color.fromARGB(255, 100, 60, 0),
-                                            Color.fromARGB(255, 90, 100, 25),
-                                            Color.fromARGB(255, 0, 150, 136),
-                                            Color.fromARGB(255, 121, 85, 72),
-                                            Color.fromARGB(154, 122, 0, 0),
-                                            Color.fromARGB(255, 255, 87, 34),
-                                            Color.fromARGB(255, 182, 109, 73),
-                                          ],
-                                          pickerColor: theappcolor,
-                                          useInShowDialog: true,
-                                          onColorChanged:
-                                              (Color selectedcolorfromavcolor) {
-                                            setState(() {
-                                              theappcolor =
-                                                  selectedcolorfromavcolor;
-                                            });
-                                          }),
-                                    ),
-                                    MaterialButton(
-                                      onPressed: () {
-                                        Navigator.pop(context);
-                                      },
-                                      child: const Text(
-                                        "اختر اللون",
-                                        style: TextStyle(
-                                          color: Colors.green,
-                                        ),
-                                      ),
-                                    )
+                      QuickAlert.show(
+                        cancelBtnText: "الغاء",
+                        confirmBtnColor: theappcolor,
+                        animType: QuickAlertAnimType.slideInUp,
+                        onCancelBtnTap: () => Navigator.pop(context),
+                        onConfirmBtnTap: () {
+
+                          setState(() {
+                            
+                          });
+                          Navigator.pop(context);
+                        },
+                        backgroundColor: backgraundcolor,
+                        confirmBtnText: "اختر",
+                        context: context,
+                        type: QuickAlertType.confirm,
+                        title: "تخيير اللون المفضل",
+                        titleColor: text_color,
+                        widget:  Column(
+                          children: [
+                            SizedBox(
+                              height: 250,
+                              child: BlockPicker(
+                                  availableColors: const [
+                                    Color.fromARGB(255, 21, 101, 192),
+                                    Color.fromARGB(255, 255, 0, 0),
+                                    Color.fromARGB(255, 0, 188, 212),
+                                    Color.fromARGB(255, 255, 152, 0),
+                                    Color.fromARGB(255, 156, 39, 176),
+                                    Color.fromARGB(255, 33, 150, 243),
+                                    Color.fromARGB(255, 103, 58, 183),
+                                    Color.fromARGB(255, 76, 175, 80),
+                                    Color.fromARGB(255, 255, 235, 59),
+                                    Color.fromARGB(255, 100, 60, 0),
+                                    Color.fromARGB(255, 90, 100, 25),
+                                    Color.fromARGB(255, 0, 150, 136),
+                                    Color.fromARGB(255, 121, 85, 72),
+                                    Color.fromARGB(154, 122, 0, 0),
+                                    Color.fromARGB(255, 255, 87, 34),
+                                    Color.fromARGB(255, 182, 109, 73),
                                   ],
-                                ),
-                              )));
+                                  pickerColor: theappcolor,
+                                  useInShowDialog: true,
+                                  onColorChanged: (Color
+                                      selectedcolorfromavcolor) {
+                                    setState(() {
+                                      theappcolor =
+                                          selectedcolorfromavcolor;
+                                    });
+                                  }),
+                            ),
+                            
+                          ],
+                        )
+                      );
+                      
                     },
                     child: Text("تغيير الللون المفضل ",
                         style: TextStyle(
@@ -189,8 +189,7 @@ class _SettingPageState extends State<SettingPage> {
                       child: Column(
                         children: [
                           const Divider(
-                            
-                            thickness:2,
+                            thickness: 2,
                           ),
                           Text(
                             'حجم خط اللغة العربية:',
@@ -271,7 +270,10 @@ class _SettingPageState extends State<SettingPage> {
                                   },
                                   child: const Text('حفظ')),
                             ],
-                          ),const Divider(thickness:2,),
+                          ),
+                          const Divider(
+                            thickness: 2,
+                          ),
                         ],
                       ),
                     ),

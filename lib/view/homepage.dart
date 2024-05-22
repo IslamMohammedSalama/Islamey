@@ -60,7 +60,7 @@ class _HomepageState extends State<Homepage> {
           onTap: (index_of_change) {
             setState(() {
               selected_index = index_of_change;              pageController.animateToPage(selected_index,
-                  duration: const Duration(milliseconds: 1000),
+                  duration: const Duration(milliseconds: 750),
                   curve: Curves.ease);
             });
 
@@ -140,6 +140,7 @@ class _HomepageState extends State<Homepage> {
                   return InkWell(
                     onTap: () {
                       Navigator.of(context).push(
+
                         MaterialPageRoute(
                           builder: (context) => Builder(
                             builder: (context) =>
@@ -160,13 +161,17 @@ class _HomepageState extends State<Homepage> {
                         child: Center(
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              azkars.keys.toList()[index],
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w900,
-                                  fontFamily: "IBMPlexSansArabic-Thin"),
+                            child: Hero(
+                              tag: azkars.keys.toList()[index],
+                              child: Text(
+                                azkars.keys.toList()[index],
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                    color: Color.fromARGB(255, 255, 255, 255),
+                                    fontSize: 17.5,
+                                    fontWeight: FontWeight.w900,
+                                    fontFamily: "IBMPlexSansArabic-Thin"),
+                              ),
                             ),
                           ),
                         ),
