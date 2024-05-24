@@ -7,6 +7,7 @@ import 'package:http/http.dart';
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:quickalert/quickalert.dart';
 
+
 class azan extends StatefulWidget {
   const azan({super.key});
 
@@ -30,6 +31,7 @@ class _azanState extends State<azan> {
     }
     return time;
   }
+
 
   @override
   Widget build(BuildContext context) {

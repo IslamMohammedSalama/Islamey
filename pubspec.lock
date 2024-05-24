@@ -13,10 +13,10 @@ packages:
     dependency: transitive
     description:
       name: archive
-      sha256: ecf4273855368121b1caed0d10d4513c7241dfc813f7d3c8933b36622ae9b265
+      sha256: "6bd38d335f0954f5fad9c79e614604fbf03a0e5b975923dd001b6ea965ef5b4b"
       url: "https://pub.dev"
     source: hosted
-    version: "3.5.1"
+    version: "3.6.0"
   args:
     dependency: transitive
     description:
@@ -316,10 +316,10 @@ packages:
     dependency: transitive
     description:
       name: image
-      sha256: "4c68bfd5ae83e700b5204c1e74451e7bf3cf750e6843c6e158289cf56bda018e"
+      sha256: "2237616a36c0d69aef7549ab439b833fb7f9fb9fc861af2cc9ac3eedddd69ca8"
       url: "https://pub.dev"
     source: hosted
-    version: "4.1.7"
+    version: "4.2.0"
   intl:
     dependency: "direct main"
     description:
@@ -657,66 +657,66 @@ packages:
     dependency: transitive
     description:
       name: syncfusion_flutter_core
-      sha256: "9e8bac2367d03bd902844f59e866c0e7b1e10b0b8fa5a6a926c0d8ae8c344533"
+      sha256: "63108a33f9b0d89f7b6b56cce908b8e519fe433dbbe0efcf41ad3e8bb2081bd9"
       url: "https://pub.dev"
     source: hosted
-    version: "25.2.4"
+    version: "25.2.5"
   syncfusion_flutter_pdf:
     dependency: transitive
     description:
       name: syncfusion_flutter_pdf
-      sha256: b62aa400fa151b86f9c36397678192c852b7ea8cdcb2d1a6e225cb6c67402b8f
+      sha256: "4fcd54b2375a390a38f91226873a4ef9306faf44688dc5de3ab6c364ce317f29"
       url: "https://pub.dev"
     source: hosted
-    version: "25.2.4"
+    version: "25.2.5"
   syncfusion_flutter_pdfviewer:
     dependency: "direct main"
     description:
       name: syncfusion_flutter_pdfviewer
-      sha256: d45a65b1862ebb779330e8e14f0f3859bb6cff81f4d0e880d626ec129b2bd156
+      sha256: "2adf5c698da7ae68d48a0a2a90b72e7dcb75c999d2e86cdf39f3c1632d0041ec"
       url: "https://pub.dev"
     source: hosted
-    version: "25.2.4"
+    version: "25.2.5"
   syncfusion_flutter_signaturepad:
     dependency: transitive
     description:
       name: syncfusion_flutter_signaturepad
-      sha256: f6f60efae09c0cd53fe0215a3e6c094da865e0dc2ca0688eb10eed12a0ea8acf
+      sha256: "949bfb264fa2e0e108456dc250f50b9f51b2b5595261365ff989c92d6cdb8ad1"
       url: "https://pub.dev"
     source: hosted
-    version: "25.2.4"
+    version: "25.2.5"
   syncfusion_pdfviewer_macos:
     dependency: transitive
     description:
       name: syncfusion_pdfviewer_macos
-      sha256: "82fd3935258522f6920c4048708e448b20969fb6f7ad5abf96a32dfb938decba"
+      sha256: ca575ff1c948bb25738a407f855ec1eb5bb6859f5cc645146e3202bf93bfa787
       url: "https://pub.dev"
     source: hosted
-    version: "25.2.4"
+    version: "25.2.5"
   syncfusion_pdfviewer_platform_interface:
     dependency: transitive
     description:
       name: syncfusion_pdfviewer_platform_interface
-      sha256: "64327f15fedcb737ccfee2791f2d7b6479c043e532a180a099e9eb50ef225468"
+      sha256: "82d2f1086aef68927964ebf25f0ace4c50e1247c0eb66dbf63b7011ca7fb784e"
       url: "https://pub.dev"
     source: hosted
-    version: "25.2.4"
+    version: "25.2.5"
   syncfusion_pdfviewer_web:
     dependency: transitive
     description:
       name: syncfusion_pdfviewer_web
-      sha256: "031d1cd1dc13f8a7c844c6ccb82385b8ccb7f453f736af88c20cbaadc2864948"
+      sha256: "7a83fd5d6ad675b95685a0f9acb7fb78df4bd4346cbb5931692cff868d6ebc50"
       url: "https://pub.dev"
     source: hosted
-    version: "25.2.4"
+    version: "25.2.5"
   syncfusion_pdfviewer_windows:
     dependency: transitive
     description:
       name: syncfusion_pdfviewer_windows
-      sha256: "6132aa8361661dbc0c80fabc1c59a1ae32959074d5ec4193adf468c9160ea62b"
+      sha256: "9db0e66575477b731979536ec0cbd33fa259c9f46d7bf00c00c5cc65c8b55187"
       url: "https://pub.dev"
     source: hosted
-    version: "25.2.4"
+    version: "25.2.5"
   term_glyph:
     dependency: transitive
     description:
@@ -734,7 +734,7 @@ packages:
     source: hosted
     version: "0.7.0"
   timezone:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: timezone
       sha256: a6ccda4a69a442098b602c44e61a1e2b4bf6f5516e875bbf0f427d5df14745d5

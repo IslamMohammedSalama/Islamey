@@ -1,11 +1,17 @@
 // ignore_for_file: unused_import
 
+import 'dart:async';
+
 import 'package:islamey/core/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:islamey/services/notfi_serv.dart';
 import 'package:islamey/view/homepage.dart';
 import 'package:islamey/view/azkar_page.dart';
 
-void main() {
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Notifservice.init();
   runApp(const MyApp());
 }
 

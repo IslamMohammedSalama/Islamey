@@ -28,15 +28,7 @@ class _SettingPageState extends State<SettingPage> {
       child: SettingsList(
         sections: [
           SettingsSection(
-              title: Center(
-                  child: Text(
-                'الاعدادات',
-                style: TextStyle(
-                    fontFamily: "IBMPlexSansArabic-Thin",
-                    fontSize: 20,
-                    fontWeight: FontWeight.w900,
-                    color: text_color),
-              )),
+              
               tiles: <SettingsTile>[
                 SettingsTile.navigation(
                   leading: const Icon(Icons.language),

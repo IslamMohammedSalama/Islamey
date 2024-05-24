@@ -21,6 +21,7 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  String title = "الأزكار";
   @override
   void initState() {
     if (isDarkMode) {
@@ -32,8 +33,18 @@ class _HomepageState extends State<Homepage> {
       text_color = const Color.fromARGB(255, 0, 0, 0);
       state = false;
     }
-
+    pageController.addListener(() {
+      setState(() {
+        selected_index = pageController.page!.round();
+      });
+    });
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
   }
 
   @override
@@ -59,11 +70,36 @@ class _HomepageState extends State<Homepage> {
           currentIndex: selected_index,
           onTap: (index_of_change) {
             setState(() {
-              selected_index = index_of_change;              pageController.animateToPage(selected_index,
+              selected_index = index_of_change;
+              pageController.animateToPage(selected_index,
                   duration: const Duration(milliseconds: 750),
                   curve: Curves.ease);
             });
-
+            if (selected_index == 0) {
+              setState(() {
+                title = "الأزكار";
+              });
+            } else if (selected_index == 1) {
+              setState(() {
+                title = "القرآن";
+              });
+            } else if (selected_index == 2) {
+              setState(() {
+                title = "السبحة";
+              });
+            } else if (selected_index == 3) {
+              setState(() {
+                title = "الصلاة";
+              });
+            } else if (selected_index == 4) {
+              setState(() {
+                title = "الاعدادات";
+              });
+            } else if (selected_index == 5) {
+              setState(() {
+                title = "عنا";
+              });
+            }
           },
           items: const [
             BottomNavigationBarItem(
@@ -118,8 +154,11 @@ class _HomepageState extends State<Homepage> {
         ),
         appBar: AppBar(
           title: Text(
-            'مرحبا في برنامح اسلامي',
-            style: Theme.of(context).textTheme.bodySmall,
+            title,
+            style:const TextStyle(
+                fontFamily: "IBMPlexSansArabic-Thin",
+                fontSize: 30,
+                fontWeight: FontWeight.w900),
           ),
           centerTitle: true,
           backgroundColor: theappcolor,
@@ -140,7 +179,6 @@ class _HomepageState extends State<Homepage> {
                   return InkWell(
                     onTap: () {
                       Navigator.of(context).push(
-
                         MaterialPageRoute(
                           builder: (context) => Builder(
                             builder: (context) =>
@@ -191,6 +229,31 @@ class _HomepageState extends State<Homepage> {
             setState(() {
               selected_index = index_of_change;
             });
+            if (selected_index == 0) {
+              setState(() {
+                title = "الأزكار";
+              });
+            } else if (selected_index == 1) {
+              setState(() {
+                title = "القرآن";
+              });
+            } else if (selected_index == 2) {
+              setState(() {
+                title = "السبحة";
+              });
+            } else if (selected_index == 3) {
+              setState(() {
+                title = "الصلاة";
+              });
+            } else if (selected_index == 4) {
+              setState(() {
+                title = "الاعدادات";
+              });
+            } else if (selected_index == 5) {
+              setState(() {
+                title = "عنا";
+              });
+            }
           },
         ));
   }

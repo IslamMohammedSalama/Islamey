@@ -222,17 +222,16 @@ class _SurahBuilderState extends State<SurahBuilder> {
             // widget.
             widget.suraName,
             textAlign: TextAlign.center,
-            style: const TextStyle(
-                fontSize: 40,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
+            style: TextStyle(
+                fontSize: 30,
+                color: text_color,
                 fontFamily: 'quran',
-                shadows: [
+                shadows: const [
                   Shadow(
-                    offset: Offset(1, 1),
-                    blurRadius: 2.0,
-                    color: Color.fromARGB(255, 0, 0, 0),
-                  ),
+                    offset: Offset(.5, .5),
+                    blurRadius: 1.0,
+                    color: Color.fromARGB(255, 130, 130, 130),
+                  )
                 ]),
           ),
         ),

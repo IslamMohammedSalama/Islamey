@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:islamey/core/constants.dart';
 
 class Spha extends StatefulWidget {
+
   int counter;
   Spha({super.key, required this.counter});
 
@@ -11,7 +12,7 @@ class Spha extends StatefulWidget {
   State<Spha> createState() => _SphaState();
 }
 
-class _SphaState extends State<Spha> {
+class _SphaState extends State<Spha> { 
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -59,6 +60,7 @@ class _SphaState extends State<Spha> {
               setState(() {
                 widget.counter++;
               });
+            // Notifservice.showNotification(title: "عدد التسبيحات", body: "${widget.counter}");
             },
           ),
         ),
