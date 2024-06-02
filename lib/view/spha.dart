@@ -50,7 +50,7 @@ class _SphaState extends State<Spha> {
                           fontWeight: FontWeight.w900,
                           color: text_color,
                         ),
-                      )
+                      ),
                     ],
                   )
                 ],
