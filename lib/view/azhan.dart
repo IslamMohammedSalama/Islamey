@@ -56,54 +56,59 @@ class _azanState extends State<azan> {
             "Maghrib": "المغرب",
             "Isha": "العشاء",
           };
-          return ListView.builder(
-            itemCount: times.length,
-            itemBuilder: (context, index) {
-              if (frod.keys.toList().contains(times.keys.toList()[index])) {
-                return Container(
-                  margin: const EdgeInsets.only(top: 1),
-                  color: theappcolor,
-                  child: Directionality(
-                    textDirection: TextDirection.rtl,
-                    child: ListTile(
-                      onTap: () {
-                        QuickAlert.show(
-                          
-                          context: context,
-                          type: QuickAlertType.info
-                          ,backgroundColor: backgraundcolor,
-                          animType: QuickAlertAnimType.slideInUp,
-                          title: "مواقيت صلاة ${frod[times.keys.toList()[index]]}",
-                        text:  "سيؤذن صلاة  ${frod[times.keys.toList()[index]]} في تمام الساعة : ${is24HourFormat ? times[times.keys.toList()[index]] : translateToArabic(time_formater.format(DateFormat.Hm().parse(times[times.keys.toList()[index]])))}",
-                        textColor: text_color,
-                          titleColor: text_color,
-                          confirmBtnColor: theappcolor,
-                          confirmBtnText: "حسنا"
-                        );
-
-                      },
-                      title: Text(
-                        "${frod[times.keys.toList()[index]]}",
-                        style: TextStyle(
-                            color: text_color,
-                            fontFamily: "IBMPlexSansArabic-Thin",
-                            fontSize: 20,
-                            fontWeight: FontWeight.w900),
-                      ),
-                      subtitle: Text(
-                        " يؤذن في تمام الساعة : ${is24HourFormat ? times[times.keys.toList()[index]] : translateToArabic(time_formater.format(DateFormat.Hm().parse(times[times.keys.toList()[index]])))}",
-                        style: const TextStyle(
-                            fontFamily: "IBMPlexSansArabic-Thin",
-                            fontSize: 20,
-                            color: Color.fromARGB(255, 165, 165, 165),
-                            fontWeight: FontWeight.w900),
+          return RefreshIndicator(
+            backgroundColor: backgraundcolor,
+            color: theappcolor,
+            onRefresh: GetTheDate,
+            child: ListView.builder(
+              itemCount: times.length,
+              itemBuilder: (context, index) {
+                if (frod.keys.toList().contains(times.keys.toList()[index])) {
+                  return Container(
+                    margin: const EdgeInsets.only(top: 1),
+                    color: theappcolor,
+                    child: Directionality(
+                      textDirection: TextDirection.rtl,
+                      child: ListTile(
+                        onTap: () {
+                          QuickAlert.show(
+                            
+                            context: context,
+                            type: QuickAlertType.info
+                            ,backgroundColor: backgraundcolor,
+                            animType: QuickAlertAnimType.slideInUp,
+                            title: "مواقيت صلاة ${frod[times.keys.toList()[index]]}",
+                          text:  "سيؤذن صلاة  ${frod[times.keys.toList()[index]]} في تمام الساعة : ${is24HourFormat ? times[times.keys.toList()[index]] : translateToArabic(time_formater.format(DateFormat.Hm().parse(times[times.keys.toList()[index]])))}",
+                          textColor: text_color,
+                            titleColor: text_color,
+                            confirmBtnColor: theappcolor,
+                            confirmBtnText: "حسنا"
+                          );
+            
+                        },
+                        title: Text(
+                          "${frod[times.keys.toList()[index]]}",
+                          style: TextStyle(
+                              color: text_color,
+                              fontFamily: "IBMPlexSansArabic-Thin",
+                              fontSize: 20,
+                              fontWeight: FontWeight.w900),
+                        ),
+                        subtitle: Text(
+                          " يؤذن في تمام الساعة : ${is24HourFormat ? times[times.keys.toList()[index]] : translateToArabic(time_formater.format(DateFormat.Hm().parse(times[times.keys.toList()[index]])))}",
+                          style: const TextStyle(
+                              fontFamily: "IBMPlexSansArabic-Thin",
+                              fontSize: 20,
+                              color: Color.fromARGB(255, 165, 165, 165),
+                              fontWeight: FontWeight.w900),
+                        ),
                       ),
                     ),
-                  ),
-                );
-              }
-              return Container();
-            },
+                  );
+                }
+                return Container();
+              },
+            ),
           );
         }
         if (snapshot.hasError) {
