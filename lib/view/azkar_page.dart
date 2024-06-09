@@ -44,7 +44,7 @@ class _AzkarPageState extends State<AzkarPage> {
     return Scaffold(
       backgroundColor: backgraundcolor,
       appBar: AppBar(
-        backgroundColor: theappcolor,
+        backgroundColor: theAppColor,
         title: Hero(
           tag: widget.title,
           child: Text(
@@ -123,7 +123,7 @@ class _AzkarState extends State<Azkar> {
                   Container(
                     alignment: Alignment.center,
                     margin: const EdgeInsets.only(top: 10),
-                    color: theappcolor,
+                    color: theAppColor,
                     height: 250,
                     width: double.infinity,
                     child: ListView(
@@ -160,7 +160,7 @@ class _AzkarState extends State<Azkar> {
                   const Spacer(),
                   Container(
                     decoration: BoxDecoration(
-                      color: theappcolor,
+                      color: theAppColor,
                     ),
                     margin: const EdgeInsets.only(top: 10),
                     child: Align(

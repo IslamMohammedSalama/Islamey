@@ -12,11 +12,13 @@ import 'package:islamey/view/azkar_page.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Notifservice.init();
+  await getSettings();
+
   runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+  const MyApp({super.key}); 
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -27,7 +29,6 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await readJson();
-      await getSettings();
     });
 
     super.initState();

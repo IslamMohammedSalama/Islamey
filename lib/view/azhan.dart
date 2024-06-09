@@ -7,7 +7,6 @@ import 'package:http/http.dart';
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:quickalert/quickalert.dart';
 
-
 class azan extends StatefulWidget {
   const azan({super.key});
 
@@ -32,7 +31,6 @@ class _azanState extends State<azan> {
     return time;
   }
 
-
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<Map>(
@@ -41,9 +39,9 @@ class _azanState extends State<azan> {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(
             child: CircularProgressIndicator(
-              color: theappcolor,
+              color: theAppColor,
             ),
-            // child:CupertinoActivityIndicator(color: theappcolor,),
+            // child:CupertinoActivityIndicator(color: theAppColor,),
           );
         }
         if (snapshot.connectionState == ConnectionState.done) {
@@ -58,7 +56,7 @@ class _azanState extends State<azan> {
           };
           return RefreshIndicator(
             backgroundColor: backgraundcolor,
-            color: theappcolor,
+            color: theAppColor,
             onRefresh: GetTheDate,
             child: ListView.builder(
               itemCount: times.length,
@@ -66,25 +64,24 @@ class _azanState extends State<azan> {
                 if (frod.keys.toList().contains(times.keys.toList()[index])) {
                   return Container(
                     margin: const EdgeInsets.only(top: 1),
-                    color: theappcolor,
+                    color: theAppColor,
                     child: Directionality(
                       textDirection: TextDirection.rtl,
                       child: ListTile(
                         onTap: () {
                           QuickAlert.show(
-                            
-                            context: context,
-                            type: QuickAlertType.info
-                            ,backgroundColor: backgraundcolor,
-                            animType: QuickAlertAnimType.slideInUp,
-                            title: "مواقيت صلاة ${frod[times.keys.toList()[index]]}",
-                          text:  "سيؤذن صلاة  ${frod[times.keys.toList()[index]]} في تمام الساعة : ${is24HourFormat ? times[times.keys.toList()[index]] : translateToArabic(time_formater.format(DateFormat.Hm().parse(times[times.keys.toList()[index]])))}",
-                          textColor: text_color,
-                            titleColor: text_color,
-                            confirmBtnColor: theappcolor,
-                            confirmBtnText: "حسنا"
-                          );
-            
+                              context: context,
+                              type: QuickAlertType.info,
+                              backgroundColor: backgraundcolor,
+                              animType: QuickAlertAnimType.slideInUp,
+                              title:
+                                  "مواقيت صلاة ${frod[times.keys.toList()[index]]}",
+                              text:
+                                  "سيؤذن صلاة  ${frod[times.keys.toList()[index]]} في تمام الساعة : ${is24HourFormat ? times[times.keys.toList()[index]] : translateToArabic(time_formater.format(DateFormat.Hm().parse(times[times.keys.toList()[index]])))}",
+                              textColor: text_color,
+                              titleColor: text_color,
+                              confirmBtnColor: theAppColor!,
+                              confirmBtnText: "حسنا");
                         },
                         title: Text(
                           "${frod[times.keys.toList()[index]]}",

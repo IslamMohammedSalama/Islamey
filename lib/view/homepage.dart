@@ -41,11 +41,11 @@ class _HomepageState extends State<Homepage> {
     super.initState();
   }
 
-  @override
-  void dispose() {
-    pageController.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   pageController.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +55,7 @@ class _HomepageState extends State<Homepage> {
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           selectedItemColor: const Color.fromARGB(255, 255, 17, 0),
-          backgroundColor: theappcolor,
+          backgroundColor: theAppColor,
           unselectedLabelStyle: const TextStyle(
               fontFamily: "IBMPlexSansArabic-Thin",
               fontSize: 15,
@@ -161,7 +161,7 @@ class _HomepageState extends State<Homepage> {
                 fontWeight: FontWeight.w900),
           ),
           centerTitle: true,
-          backgroundColor: theappcolor,
+          backgroundColor: theAppColor,
         ),
         body: PageView(
           controller: pageController,
@@ -190,7 +190,7 @@ class _HomepageState extends State<Homepage> {
                     borderRadius: const BorderRadius.all(Radius.circular(10)),
                     child: Card(
                       margin: const EdgeInsets.all(1.5),
-                      color: theappcolor,
+                      color: theAppColor,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(2.5),
                       ),

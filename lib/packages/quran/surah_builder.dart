@@ -198,7 +198,7 @@ class _SurahBuilderState extends State<SurahBuilder> {
     return Scaffold(
       backgroundColor: backgraundcolor,
       appBar: AppBar(
-        backgroundColor: theappcolor,
+        backgroundColor: theAppColor,
         actions: [
           Tooltip(
             message: 'وضعية المصحف',

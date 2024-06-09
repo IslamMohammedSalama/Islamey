@@ -8,11 +8,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 import 'package:flutter/scheduler.dart';
+
 Color textColor = const Color.fromARGB(255, 255, 255, 255);
 Color backgraundcolor = const Color.fromARGB(255, 0, 0, 0);
-Color theAppColor = const Color.fromARGB(255, 21, 101, 192);
+Color? theAppColor;
 
-Color theappcolor = const Color.fromARGB(255, 21, 101, 192);
 int selected_index = 0;
 PageController pageController = PageController();
 int counter = 0;
@@ -27,6 +27,25 @@ bool is24HourFormat = false;
 int bookmarkedAyah = 1;
 int bookmarkedSura = 1;
 bool fabIsClicked = true;
+List<Color> avilableColors = const [
+Color(0xffff1565c0),
+Color(0xffffff0000),
+Color(0xff00bcd4),
+Color(0x7d9c5e00),
+Color(0xffff9c27b0),
+Color(0xff2196f3),
+Color(0xff673ab7),
+Color(0xff4caf50),
+Color(0xff7d7000),
+Color(0xff643c00),
+Color(0xff5a6419),
+Color(0xff009688),
+Color(0xff795548),
+Color(0x9a7a0000),
+Color(0xffff5722),
+Color(0xffb66d49)
+
+];
 
 final ItemScrollController itemScrollController = ItemScrollController();
 final ItemPositionsListener itemPositionsListener =
@@ -42,16 +61,25 @@ Future saveSettings() async {
   final prefs = await SharedPreferences.getInstance();
   await prefs.setInt('arabicFontSize', arabicFontSize.toInt());
   await prefs.setInt('mushafFontSize', mushafFontSize.toInt());
+  await prefs.setBool('is24HourFormat', is24HourFormat);
+  await prefs.setBool('isDarkMode', isDarkMode);
+  await prefs.setInt("ColorValue", theAppColor!.value);
 }
 
 Future getSettings() async {
   try {
-    final prefs = await SharedPreferences.getInstance();
+    final prefs = await SharedPreferences.getInstance();    theAppColor = Color(prefs.getInt("ColorValue")!);
     arabicFontSize = prefs.getInt('arabicFontSize')!.toDouble();
     mushafFontSize = prefs.getInt('mushafFontSize')!.toDouble();
-  } catch (_) {
+    is24HourFormat = prefs.getBool('is24HourFormat')!;
+    isDarkMode = prefs.getBool('isDarkMode')!;
+
+  } catch (_) {    theAppColor = const Color(0xffff1565c0);
     arabicFontSize = 28;
     mushafFontSize = 40;
+    is24HourFormat = false;
+    isDarkMode = true;
+
   }
 }
 

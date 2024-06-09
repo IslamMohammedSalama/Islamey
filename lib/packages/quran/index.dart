@@ -17,7 +17,7 @@ class _IndexPageState extends State<IndexPage> {
       backgroundColor: backgraundcolor,
       floatingActionButton: FloatingActionButton(
         tooltip: 'الذهاب الي المرجع',
-        backgroundColor: theappcolor,
+        backgroundColor: theAppColor,
         onPressed: () async {
           fabIsClicked = true;
           if (await readBookmark() == true) {
@@ -87,16 +87,16 @@ class _IndexPageState extends State<IndexPage> {
                       child: Text(
                         arabicName[i]['name'],
                         style: TextStyle(
-                            fontSize: 30,
-                            color: text_color,
-                            fontFamily: 'quran',
-                            shadows: const [
-                              Shadow(
-                                offset: Offset(.5, .5),
-                                blurRadius: 1.0,
-                                color: Color.fromARGB(255, 130, 130, 130),
-                              )
-                            ]),
+                fontSize: 30,
+                color: text_color,
+                fontFamily: 'quran',
+                shadows: const [
+                  Shadow(
+                    offset: Offset(.5, .5),
+                    blurRadius: 1.0,
+                    color: Color.fromARGB(255, 130, 130, 130),
+                  )
+                ]),
                         textDirection: TextDirection.rtl,
                       ),
                     ),
