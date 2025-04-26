@@ -26,6 +26,8 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   @override
+
+  
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await readJson();

@@ -16,7 +16,7 @@ class azan extends StatefulWidget {
 
 class _azanState extends State<azan> {
   DateFormat time_formater = DateFormat("hh:mm a");
-  Future<Map> GetTheDate() async {
+  Future<Map> _GetTheDate() async {
     var respo = await get(Uri.parse(
         "http://api.aladhan.com/v1/timingsByCity?city=cairo&country=egypt&method=5"));
     return jsonDecode(respo.body);
@@ -34,7 +34,7 @@ class _azanState extends State<azan> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<Map>(
-      future: GetTheDate(),
+      future: _GetTheDate(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(
@@ -57,7 +57,7 @@ class _azanState extends State<azan> {
           return RefreshIndicator(
             backgroundColor: backgraundcolor,
             color: theAppColor,
-            onRefresh: GetTheDate,
+            onRefresh: _GetTheDate,
             child: ListView.builder(
               itemCount: times.length,
               itemBuilder: (context, index) {

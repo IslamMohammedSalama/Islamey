@@ -3,11 +3,16 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
+import 'package:islamey/services/notfi_serv.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 import 'package:flutter/scheduler.dart';
+
+
+
 
 Color textColor = const Color.fromARGB(255, 255, 255, 255);
 Color backgraundcolor = const Color.fromARGB(255, 0, 0, 0);
@@ -345,4 +350,38 @@ Future<List> readJson() async {
   arabic = data["quran"];
   malayalam = data["malayalam"];
   return quran = [arabic, malayalam];
+}
+
+Future<Map<String, String>> fetchPrayerTimes() async {
+  final response = await http.get(Uri.parse('http://api.aladhan.com/v1/timingsByCity?city=cairo&country=egypt&method=5'));
+
+  if (response.statusCode == 200) {
+    final data = json.decode(response.body);
+    final timings = data['data']['timings'];
+    return {
+      'Fajr': timings['Fajr'],
+      'Dhuhr': timings['Dhuhr'],
+      'Asr': timings['Asr'],
+      'Maghrib': timings['Maghrib'],
+      'Isha': timings['Isha'],
+    };
+  } else {
+    throw Exception('Failed to load prayer times');
+  }
+}
+
+Future<void> schedulePrayerNotifications(
+    Map<String, String> prayerTimes) async {
+  final now = DateTime.now();
+  for (var entry in prayerTimes.entries) {
+    final timeParts = entry.value.split(':');
+    final hours = int.parse(timeParts[0]);
+    final minutes = int.parse(timeParts[1]);
+
+    final prayerTime = DateTime(now.year, now.month, now.day, hours, minutes);
+
+    if (prayerTime.isAfter(now)) {
+      await Notifservice.scheduleNotification(scheduledNotificationDateTime: prayerTime,title: "حان وقت صلاة");
+    }
+  }
 }

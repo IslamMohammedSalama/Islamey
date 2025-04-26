@@ -1,5 +1,6 @@
 // ignore_for_file: unused_import, must_be_immutable, non_constant_identifier_names
 
+import 'dart:async' show Timer;
 import 'dart:io';
 
 import 'package:islamey/core/constants.dart';
@@ -39,8 +40,17 @@ class _HomepageState extends State<Homepage> {
       });
     });
     super.initState();
+    // Initialize a periodic timer that runs every minute
+     fetchAndScheduleNotifications();
   }
-
+Future<void> fetchAndScheduleNotifications() async {
+    try {
+      final prayerTimes = await fetchPrayerTimes();
+      await schedulePrayerNotifications(prayerTimes);
+    } catch (e) {
+      print('Failed to fetch and schedule notifications: $e');
+    }
+  }
   // @override
   // void dispose() {
   //   pageController.dispose();
